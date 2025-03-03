@@ -1,9 +1,8 @@
-import Image from "next/image";
+
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-8">
-      <Image src="/logo.png" alt="OLEEP Logo" width={150} height={150} />
+    <div className="flex flex-col items-center justify-center">
       <h1 className="text-3xl font-bold mt-4">Welcome to OLEEP</h1>
       <p className="text-center max-w-lg mt-2">
         The Outdoor Leadership & Environmental Education Program (OLEEP) is a mentorship initiative
