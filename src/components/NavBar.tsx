@@ -32,12 +32,22 @@ const NavBar = () => {
             </Link>
           </li>
           <li>
-            <Link className="navbar-link" href="/mentors">
+            <Link
+              className={`nav-link navbar-link ${
+                pathname === "/mentors" ? "active-link" : ""
+              }`}
+              href="/mentors"
+            >
               Mentors
             </Link>
           </li>
           <li>
-            <Link className="navbar-link" href="/newsletter">
+            <Link
+              className={`navbar-link ${
+                pathname === "/newsletter" ? "active-link" : ""
+              }`}
+              href="/newsletter"
+            >
               News
             </Link>
           </li>
@@ -45,23 +55,38 @@ const NavBar = () => {
             <Image
               src="/oleepLogo.png"
               alt="Logo"
-              width={70}
-              height={50}
+              width={100}
+              height={70}
               className="navbar-logo"
             />
           </li>
           <li>
-            <Link className="navbar-link" href="/curriculum">
+            <Link
+              className={`navbar-link ${
+                pathname === "/curriculum" ? "active-link" : ""
+              }`}
+              href="/curriculum"
+            >
               Curriculum
             </Link>
           </li>
           <li>
-            <Link className="navbar-link" href="/gallery">
+            <Link
+              className={`navbar-link ${
+                pathname === "/gallery" ? "active-link" : ""
+              }`}
+              href="/gallery"
+            >
               Gallery
             </Link>
           </li>
           <li>
-            <Link className="navbar-link" href="/about">
+            <Link
+              className={`navbar-link ${
+                pathname === "/about" ? "active-link" : ""
+              }`}
+              href="/about"
+            >
               About
             </Link>
           </li>
@@ -119,14 +144,14 @@ const NavBar = () => {
     font-size: 20px;
     text-decoration: none;
     transition: color 0.3s ease-in-out;
-    padding: 10px 20px; //elipse
-    border-radius: 50px; /elipse
   }
 
   /* Active link (circular green highlight) */
   .active-link {
-     background-color: #347235; /* Medium forest green highlight */
+     background: linear-gradient(90deg, #468C3A, #5EC272); /* Green gradient */
      color: #ffffff !important; /* White text */
+     padding: 10px 25px; /* Adjust padding to create a circular shape */
+     border-radius: 25px; /* Make the background circular */
   }
 
   /* Change color on hover */
