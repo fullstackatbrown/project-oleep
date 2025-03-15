@@ -94,83 +94,73 @@ const NavBar = () => {
       </div>
 
       <style>{`
+        .navbar {
+          display: flex;
+          flex-direction: column;
+          align-items: center; /* Center navbar items */
+          font-weight: bold;
+        }
 
-  .navbar {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center navbar items */
-  }
+        img {
+          margin: 0;
+        }
 
-  img {
-    margin: 0;
-  }
+        nav {
+          background-color: #ffffff;
+          padding: 1rem 0;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-  nav {
-    background-color: #ffffff;
-    padding: 1rem 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+        ul {
+          display: flex;
+          list-style: none;
+          align-items: center; /* Ensures links are vertically aligned */
+          justify-content: center; /* Centers links horizontally */
+          padding: 0;
+          margin: 0;
+          width: 100%;
+        }
 
-  ul {
-    display: flex;
-    list-style: none;
-    align-items: center; /* Ensures links are vertically aligned */
-    justify-content: center; /* Centers links horizontally */
-    padding: 0;
-    margin: 0;
-    width: 100%;
-  }
+        li {
+          margin: 0 1rem;
+        }
 
-  li {
-    margin: 0 1rem;
-  }
+        @media (width <= 950px) {
+          .navbar {
+            align-items: center;
+            flex-direction: column;
+          }
+          ul {
+            flex-direction: column;
+          }
+          li {
+            padding: 10px;
+          }
+        }
 
-  @media (width <= 950px) {
-    .navbar {
-      align-items: center;
-      flex-direction: column;
-    }
-    ul {
-      flex-direction: column;
-    }
-    li {
-      padding: 10px;
-    }
-  }
+        /* Override default link styles */
+        a.navbar-link {
+          color: #000000;
+          font-size: 20px;
+          text-decoration: none;
+          transition: color 0.3s ease-in-out;
+        }
 
-  /* Override default link styles */
-  a.navbar-link {
-    color: #000000;
-    font-size: 20px;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-  }
+        /* Active link (circular green highlight) */
+        .active-link {
+          background: linear-gradient(90deg, #468C3A, #5EC272); /* Green gradient */
+          color: #ffffff !important; /* White text */
+          padding: 10px 25px; /* Adjust padding to create a circular shape */
+          border-radius: 25px; /* Make the background circular */
+        }
 
-  /* Active link (circular green highlight) */
-  .active-link {
-     background: linear-gradient(90deg, #468C3A, #5EC272); /* Green gradient */
-     color: #ffffff !important; /* White text */
-     padding: 10px 25px; /* Adjust padding to create a circular shape */
-     border-radius: 25px; /* Make the background circular */
-  }
-
-  /* Change color on hover */
-  a.navbar-link:hover {
-    color: #006400 !important; /* Dark Green */
-  }
+        /* Change color on hover */
+        a.navbar-link:hover {
+          color: #006400 !important; /* Dark Green */
+        }
 `}</style>
     </nav>
   );
 };
 
 export default NavBar;
-
-/*
-<nav className="p-4 bg-green-700 text-white flex gap-4">
-          <a href="/">Home</a>
-          <a href="/mentors">Mentors</a>
-          <a href="/newsletter">Newsletter</a>
-          <a href="/curriculum">Curriculum</a>
-          <a href="/gallery">Gallery</a>
-        </nav>
-*/
