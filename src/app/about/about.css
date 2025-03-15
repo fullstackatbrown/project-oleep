@@ -1,0 +1,19 @@
+.about-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    gap: 10px 2em;
+    align-items: start;
+    justify-content: space-between;
+    padding: 8rem;
+
+}
+.card-item {
+    background-color: white;
+    padding: 1rem;
+    background-color: rgb(113, 196, 131);
+    border-radius: 10px;
+    height: 200px;
+}
+.about-us :first-child {
+    align-self: end;
+}

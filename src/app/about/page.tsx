@@ -1,6 +1,72 @@
+import "./about.css"
+
 export default function about() {
     return (
       <div className="p-6 bg-white text-gray-800">
+        <h1 className="text-xl font-bold mb-4 text-center">Guiding Principles</h1>
+        
+          <div className="about-card">
+            <div className= "card-item">
+            <h2 className="font-semibold">Environmental Justice</h2>
+            <p>
+              Climate change and environmental degradation continue to disproportionately affect the most 
+              vulnerable populations. OLEEP strives to develop environmental leaders who are driven to bring 
+              about justice in their communities and around the world.
+            </p>
+            </div>
+            
+            <div className= "card-item">
+            <h2 className="font-semibold">Science Education</h2>
+            <p>
+              Our workshops provide a space for students to learn about the physical world around them. 
+              While building climate change literacy and fostering scientific curiosity, students develop empirical 
+              and quantitative reasoning skills as envisioned by the Met.
+            </p>
+            </div>
+
+            <div className= "card-item">
+            <h2 className="font-semibold">Mentorship</h2>
+            <p>
+              Mentorship provides students with guidance, support, and friendship while they grow into young 
+              leaders and discover their next steps, particularly navigating the process of applying to and 
+              attending college, technical school, and/or the workforce.
+            </p>
+            </div>
+
+            <div className= "card-item">
+            <h2 className="font-semibold">Community</h2>
+            <p>
+              All students deserve the chance to learn and experiment in a safe and supportive environment where 
+              they feel valued for who they are as individuals. We believe in creating brave spaces where students 
+              can take chances, learn collaboratively, and support each other.
+            </p>
+            </div>
+
+            <div className= "card-item">
+            <h2 className="font-semibold">Leadership</h2>
+            <p>
+              A world increasingly threatened by climate change and environmental degradation is a world that 
+              demands leadership from us all. There's no one leadership style. Through open discussion and 
+              creativity, OLEEP offers a place for all students to determine their strengths, build their skills, 
+              and discover the way they lead.
+            </p>
+            </div>
+
+            <div className= "card-item">
+            <h2 className="font-semibold">Outdoors</h2>
+            <p>
+              We believe that exploring the natural world provides endless learning opportunities and that 
+              strong community bonds can be developed through shared exposure to many different and unfamiliar 
+              scenarios.
+            </p>
+            </div>
+            </div>
+          
+     
+
+
+
+
         <h1 className="text-xl font-bold mb-4 text-center">History</h1>
   
         <p className="mb-6 text-center">
