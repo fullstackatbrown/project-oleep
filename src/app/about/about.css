@@ -17,3 +17,14 @@
 .about-us :first-child {
     align-self: end;
 }
+
+h1.text-center, 
+h2.text-center {
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+section {
+    width: 100%;
+}
