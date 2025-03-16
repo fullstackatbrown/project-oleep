@@ -1,0 +1,52 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .filterButton {
+    background: white;
+    border: 2px solid #0073b1;
+    margin: 10px auto; /* Centers it horizontally */
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+
+  .arrow {
+    font-size: 14px;
+  }
+  
+  .dropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 10;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    display: none;
+  }
+  
+  .dropdownMenu.show {
+    display: block; /* Show the dropdown when isOpen is true */
+  }
+  
+  .option {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #0073b1;
+  }
+  
+  .option:hover {
+    background: #f0f0f0;
+  }
+  
