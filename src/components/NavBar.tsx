@@ -122,7 +122,7 @@ const NavBar = () => {
         }
 
         li {
-          margin: 0 1rem;
+          margin: 0 2rem;
         }
 
         @media (width <= 950px) {
