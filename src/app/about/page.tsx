@@ -7,7 +7,7 @@ export default function about() {
         
           <div className="about-card">
             <div className= "card-item">
-            <h2 className="font-semibold">Environmental Justice</h2>
+            <h2 className="font-semibold text-center">Environmental Justice</h2>
             <p>
               Climate change and environmental degradation continue to disproportionately affect the most 
               vulnerable populations. OLEEP strives to develop environmental leaders who are driven to bring 
@@ -16,7 +16,7 @@ export default function about() {
             </div>
             
             <div className= "card-item">
-            <h2 className="font-semibold">Science Education</h2>
+            <h2 className="font-semibold text-center">Science Education</h2>
             <p>
               Our workshops provide a space for students to learn about the physical world around them. 
               While building climate change literacy and fostering scientific curiosity, students develop empirical 
@@ -25,7 +25,7 @@ export default function about() {
             </div>
 
             <div className= "card-item">
-            <h2 className="font-semibold">Mentorship</h2>
+            <h2 className="font-semibold text-center">Mentorship</h2>
             <p>
               Mentorship provides students with guidance, support, and friendship while they grow into young 
               leaders and discover their next steps, particularly navigating the process of applying to and 
@@ -34,7 +34,7 @@ export default function about() {
             </div>
 
             <div className= "card-item">
-            <h2 className="font-semibold">Community</h2>
+            <h2 className="font-semibold text-center">Community</h2>
             <p>
               All students deserve the chance to learn and experiment in a safe and supportive environment where 
               they feel valued for who they are as individuals. We believe in creating brave spaces where students 
@@ -43,7 +43,7 @@ export default function about() {
             </div>
 
             <div className= "card-item">
-            <h2 className="font-semibold">Leadership</h2>
+            <h2 className="font-semibold text-center">Leadership</h2>
             <p>
               A world increasingly threatened by climate change and environmental degradation is a world that 
               demands leadership from us all. There's no one leadership style. Through open discussion and 
@@ -53,7 +53,7 @@ export default function about() {
             </div>
 
             <div className= "card-item">
-            <h2 className="font-semibold">Outdoors</h2>
+            <h2 className="font-semibold text-center">Outdoors</h2>
             <p>
               We believe that exploring the natural world provides endless learning opportunities and that 
               strong community bonds can be developed through shared exposure to many different and unfamiliar 
