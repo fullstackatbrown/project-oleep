@@ -1,4 +1,6 @@
 import Image from "next/image";
+import ContactUs from "./footer/contact";
+import "./globals.css"; 
 
 export default function Home() {
   return (
@@ -17,6 +19,7 @@ export default function Home() {
           Read Our Newsletter
         </a>
       </div>
+      <ContactUs></ContactUs>
     </div>
   );
 }
