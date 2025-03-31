@@ -1,3 +1,4 @@
+import NavBar from "@/components/NavBar";
 
 export default function RootLayout({
   children,
@@ -5,7 +6,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <nav className="p-4 bg-green-700 text-white flex gap-4">
+        <NavBar />
+        {/*
+         <nav className="p-4 bg-green-700 text-white flex gap-4">
           <a href="/">Home</a>
           <a href="test-cms">Test CMS</a>
           <a href="/mentors">Mentors</a>
@@ -13,7 +16,8 @@ export default function RootLayout({
           <a href="/curriculum">Curriculum</a>
           <a href="/gallery">Gallery</a>
           <a href="/about">About</a>
-        </nav>
+        </nav> 
+        */}
         <main className="p-6">{children}</main>
       </body>
     </html>
