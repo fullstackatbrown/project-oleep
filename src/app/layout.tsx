@@ -15,6 +15,7 @@ export default function RootLayout({
           <a href="/newsletter">Newsletter</a>
           <a href="/curriculum">Curriculum</a>
           <a href="/gallery">Gallery</a>
+          <a href="/about">About</a>
         </nav> 
         */}
         <main className="p-6">{children}</main>
