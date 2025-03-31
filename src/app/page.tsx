@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import ContactUs from "./footer/contact";
+import "./globals.css"; 
 import { Quicksand } from "next/font/google";
 
 const quicksand = Quicksand({
@@ -31,6 +33,7 @@ export default function Home() {
           <button className="donate-button">Donate</button>
         </div>
       </div>
+      <ContactUs></ContactUs>
 
         <div className="who-we-are-container">
           <h1 className={`who-we-are ${quicksand.className}`}>Who We Are</h1>
