@@ -1,0 +1,47 @@
+body {
+  font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'Segoe UI', sans-serif;
+  font-size: 1.125rem; 
+  line-height: 1.7;
+  color: #1a1a1a;
+}
+
+
+.about-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    gap: 10px 2em;
+    align-items: start;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+  
+  .card-item {
+    background-color: rgb(113, 196, 131);
+    padding: 2rem;
+    border-radius: 10px;
+    height: 300px;
+    width: 400px;
+  }
+  
+  h1.text-center, 
+  h2.text-center {
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+  
+  section.about-section {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  
+  .history-section {
+    background-color: #f9fafb;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+  }
+  
+  .history-section p {
+    line-height: 1.6;
+  }

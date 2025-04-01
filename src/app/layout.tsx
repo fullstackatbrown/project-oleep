@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import "./globals.css";
 import Image from "next/image";
+=======
+import NavBar from "@/components/NavBar";
+>>>>>>> 9aa58cd0cb8c7d25e691f22285d9acbf0f3953bb
 
 export default function RootLayout({
   children,
@@ -13,6 +17,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+<<<<<<< HEAD
         <header className="header">
           <nav className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center" style={{ fontFamily: 'Quicksand, sans-serif' }}>
             <ul className="flex font-bold" style={{ flex: 1 }}>
@@ -28,6 +33,20 @@ export default function RootLayout({
             </ul>
           </nav>
         </header>
+=======
+        <NavBar />
+        {/*
+         <nav className="p-4 bg-green-700 text-white flex gap-4">
+          <a href="/">Home</a>
+          <a href="test-cms">Test CMS</a>
+          <a href="/mentors">Mentors</a>
+          <a href="/newsletter">Newsletter</a>
+          <a href="/curriculum">Curriculum</a>
+          <a href="/gallery">Gallery</a>
+          <a href="/about">About</a>
+        </nav> 
+        */}
+>>>>>>> 9aa58cd0cb8c7d25e691f22285d9acbf0f3953bb
         <main className="p-6">{children}</main>
       </body>
     </html>
