@@ -21,6 +21,7 @@ type CosmicMentorResponse = {
             name: string;
             email: string;
             concentration: string;
+            role: string;
             favorite_thing_about_oleep: string;
             hometown: string;
             image: {
@@ -44,9 +45,13 @@ async function fetchMentors() {
             name: obj.metadata.name,
             email: obj.metadata.email,
             concentration: obj.metadata.concentration,
+            role: obj.metadata.role,
             favoriteFact: obj.metadata.favorite_thing_about_oleep,
             hometown: obj.metadata.hometown,
-            imageUrl: obj.metadata.image.url,
+            imageUrl:
+                obj.metadata.image?.url ||
+                obj.metadata.image?.imgix_url ||
+                "/noMentorImage.jpg",
         }));
     } catch (error) {
         console.error("Error fetching mentors:", error);
@@ -79,6 +84,9 @@ export default async function Mentors() {
                         <div className="hover-popup">
                             <p>
                                 <strong>{mentor.name}</strong>
+                            </p>
+                            <p>
+                                <strong>Role:</strong> {mentor.role}
                             </p>
                             <p>
                                 <strong>Concentration:</strong>{" "}
