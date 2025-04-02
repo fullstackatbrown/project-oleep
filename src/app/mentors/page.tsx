@@ -1,47 +1,84 @@
-import mentorData from "./mentorData.json";
+import { createBucketClient } from "@cosmicjs/sdk";
 import "./mentors.css";
+import { Quicksand } from "next/font/google";
+
+const quicksand = Quicksand({
+    subsets: ["latin"],
+    weight: ["400", "600", "700"],
+});
+
+const cosmic = createBucketClient({
+    bucketSlug: process.env.NEXT_PUBLIC_COSMIC_BUCKET_SLUG || "",
+    readKey: process.env.NEXT_PUBLIC_COSMIC_READ_KEY || "",
+});
+
+type CosmicMentorResponse = {
+    objects: Array<{
+        slug: string;
+        title: string;
+        type: string;
+        metadata: {
+            name: string;
+            email: string;
+            concentration: string;
+            favorite_thing_about_oleep: string;
+            hometown: string;
+            image: {
+                url: string;
+                imgix_url: string;
+            };
+        };
+    }>;
+    total: number;
+};
 
 async function fetchMentors() {
-    return mentorData;
+    try {
+        const { objects } = await cosmic.objects
+            .find({ type: "mentors" })
+            .props("slug,title,metadata,type")
+            .depth(1);
+        const mentors = objects as CosmicMentorResponse["objects"];
+        return mentors.map((obj) => ({
+            id: obj.slug,
+            name: obj.metadata.name,
+            email: obj.metadata.email,
+            concentration: obj.metadata.concentration,
+            favoriteFact: obj.metadata.favorite_thing_about_oleep,
+            hometown: obj.metadata.hometown,
+            imageUrl: obj.metadata.image.url,
+        }));
+    } catch (error) {
+        console.error("Error fetching mentors:", error);
+        return [];
+    }
 }
 
 export default async function Mentors() {
     const mentors = await fetchMentors();
 
     return (
-        <div className="p-8">
-            <h1 className="text-3xl font-bold mb-6">Mentors</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className={`p-8 ${quicksand.className}`} id="page-container">
+            <h1 style={{ marginTop: 0, marginBottom: "2rem" }}>Mentors</h1>
+            <div className="mentor-container">
                 {mentors.map((mentor) => (
                     <div key={mentor.id} className="relative group">
-                        {/* Mentor Card */}
                         <div className="mentor-card">
-                            <div className="flex items-center space-x-4">
-                                <img
-                                    src={`https://via.placeholder.com/50?text=${mentor.name.charAt(
-                                        0
-                                    )}`}
-                                    alt={mentor.name}
-                                    className="mentor-image"
-                                />
-                                <div>
-                                    <h2 className="text-xl font-semibold text-black">
-                                        {mentor.name}
-                                    </h2>
-                                    <p className="text-sm text-black">
-                                        {mentor.role}
-                                    </p>
-                                </div>
+                            <img
+                                src={mentor.imageUrl}
+                                alt={mentor.name}
+                                className="mentor-image"
+                            />
+                            <div className="mentor-info">
+                                <h2 className="text-xl font-semibold text-black mentor-name">
+                                    {mentor.name}
+                                </h2>
                             </div>
                         </div>
 
-                        {/* Hover Popup */}
                         <div className="hover-popup">
                             <p>
                                 <strong>{mentor.name}</strong>
-                            </p>
-                            <p>
-                                <strong>Role:</strong> {mentor.role}
                             </p>
                             <p>
                                 <strong>Concentration:</strong>{" "}
@@ -55,7 +92,7 @@ export default async function Mentors() {
                             </p>
                             <p>
                                 <strong>Favorite OLEEP Fact:</strong>{" "}
-                                {mentor["favorite-OLEEP-fact"]}
+                                {mentor.favoriteFact}
                             </p>
                         </div>
                     </div>
