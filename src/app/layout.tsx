@@ -1,13 +1,13 @@
 import NavBar from "@/components/NavBar";
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="en">
-      <body>
-        <NavBar />
-        {/*
+    return (
+        <html lang="en">
+            <body>
+                <NavBar />
+                {/*
          <nav className="p-4 bg-green-700 text-white flex gap-4">
           <a href="/">Home</a>
           <a href="test-cms">Test CMS</a>
@@ -18,8 +18,8 @@ export default function RootLayout({
           <a href="/about">About</a>
         </nav> 
         */}
-        <main className="p-6">{children}</main>
-      </body>
-    </html>
-  );
+                <main className="p-6">{children}</main>
+            </body>
+        </html>
+    );
 }
