@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-
-
-export default function Home() {
-  return (
-    <div className="flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-bold mt-4">Welcome to OLEEP</h1>
-      <p className="text-center max-w-lg mt-2">
-        The Outdoor Leadership & Environmental Education Program (OLEEP) is a mentorship initiative
-        connecting Brown University students with high school mentees to teach environmental justice.
-      </p>
-      <div className="mt-6 flex gap-4">
-        <a href="/mentors" className="px-4 py-2 bg-green-600 text-white rounded-md">
-          Meet Our Mentors
-        </a>
-        <a href="/newsletter" className="px-4 py-2 border border-green-600 text-green-600 rounded-md">
-          Read Our Newsletter
-        </a>
-=======
 import React from "react";
 import Image from "next/image";
 import { Quicksand } from "next/font/google";
@@ -36,6 +17,7 @@ export default function Home() {
           width={490}
           height={433}
           className="home-image"
+          style={{ objectFit: "contain" }} 
         />
         <div className={`text-content ${quicksand.className}`}>
           <h1 className={"title"}>
@@ -49,7 +31,6 @@ export default function Home() {
           </h1>
           <button className="donate-button">Donate</button>
         </div>
->>>>>>> 9aa58cd0cb8c7d25e691f22285d9acbf0f3953bb
       </div>
 
         <div className="who-we-are-container">
@@ -63,23 +44,38 @@ export default function Home() {
     
 
       <style>{`
+        body, html {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          overflow-x: hidden;
+        }
 
         .main-container {
           display: flex;
           align-items: center;
           flex-direction: column;
+          width: 100vw; /* Use viewport width instead of percentage */
+          max-width: 100%; /* Prevent overflow */
+          overflow-x: hidden;
+          margin: 0;
+          padding: 0;
         }
+          
         .home-container {
           background: linear-gradient(135deg, #DFF2D8, #83D28D);
           width: 100%;
-          height: 547px;
+          min-height: 547px;
           display: flex;
           align-items: center;
           justify-content: center;
+          flex-wrap: wrap;
         }
 
         .homeImage{
-          object-fit: contain;
+          position: relative; /* Required for 'fill' prop */
+          width: 100%;
+          height: auto;
         }
 
         .text-content {
