@@ -1,10 +1,16 @@
 import NavBar from "@/components/NavBar";
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+       <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>
         <NavBar />
         {/*
@@ -18,8 +24,8 @@ export default function RootLayout({
           <a href="/about">About</a>
         </nav> 
         */}
-        <main className="p-6">{children}</main>
-      </body>
-    </html>
-  );
+                <main className="p-6">{children}</main>
+            </body>
+        </html>
+    );
 }
