@@ -1,7 +1,7 @@
 import NavBar from "@/components/NavBar";
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
@@ -24,8 +24,8 @@ export default function RootLayout({
           <a href="/about">About</a>
         </nav> 
         */}
-        <main className="p-6">{children}</main>
-      </body>
-    </html>
-  );
+                <main className="p-6">{children}</main>
+            </body>
+        </html>
+    );
 }
