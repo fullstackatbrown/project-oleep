@@ -1,5 +1,3 @@
-export default function Mentors() {
-
 import { createBucketClient } from "@cosmicjs/sdk";
 import "./mentors.css";
 import { Quicksand } from "next/font/google";
