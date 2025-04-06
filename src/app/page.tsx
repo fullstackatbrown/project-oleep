@@ -1,97 +1,99 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import { Quicksand } from "next/font/google";
+import PopUp from "@/components/PopUp";
 
 const quicksand = Quicksand({
-    subsets: ["latin"],
-    weight: ["400", "600", "700"],
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
 });
 
 export default function Home() {
-    return (
-        <div className="main-container">
-            <div className="home-container">
-                <Image
-                    src="/homeImage.png"
-                    alt="Environmental Illustration"
-                    width={490}
-                    height={433}
-                    className="home-image"
-                />
-                <div className={`text-content ${quicksand.className}`}>
-                    <h1 className={"title"}>
-                        Outdoor
-                        <br />
-                        Leadership and
-                        <br />
-                        <span className="outlineEnv">Environmental</span>
-                        <br />
-                        Education Program
-                    </h1>
-                    <button className="donate-button">Donate</button>
-                </div>
-            </div>
+  const [showPopup, setShowPopup] = useState(false);
+  return (
+    <div className="main-container">
+      {showPopup && <PopUp onClose={() => setShowPopup(false)} />}
+      <div className={`home-container ${showPopup ? "blurred" : ""}`}>
+        <Image
+          src="/homeImage.png"
+          alt="Environmental Illustration"
+          width={490}
+          height={433}
+          className="home-image"
+        />
+        <div className={`text-content ${quicksand.className}`}>
+          <h1 className={"title"}>
+            Outdoor
+            <br />
+            Leadership and
+            <br />
+            <span className="outlineEnv">Environmental</span>
+            <br />
+            Education Program
+          </h1>
+          <button className="donate-button" onClick={() => setShowPopup(true)}>
+            Donate
+          </button>
+        </div>
+      </div>
 
-            <div className="who-we-are-container">
-                <h1 className={`who-we-are ${quicksand.className}`}>
-                    Who We Are
-                </h1>
-                <p className={`who-we-are-text ${quicksand.className}`}>
-                    {" "}
-                    OLEEP is a partnership between the Metropolitan Regional
-                    Career and Technical Center (the Met) and Brown University's
-                    Swearer Center for Public Service. We work with high school
-                    students to develop leadership skills as well as
-                    environmental science and justice knowledge, with a specific
-                    emphasis on building a supportive, collaborative community
-                    where <strong>Brown</strong> and <strong>Met</strong>{" "}
-                    students can learn and grow together.
-                    <br />
-                    <br />
-                    We believe, with the right support, everyone can be a leader
-                    and bringing about an environmentally just world depends on
-                    it.
-                </p>
-            </div>
+      <div className="who-we-are-container">
+        <h1 className={`who-we-are ${quicksand.className}`}>Who We Are</h1>
+        <p className={`who-we-are-text ${quicksand.className}`}>
+          {" "}
+          OLEEP is a partnership between the Metropolitan Regional Career and
+          Technical Center (the Met) and Brown University&apos;s Swearer Center
+          for Public Service. We work with high school students to develop
+          leadership skills as well as environmental science and justice
+          knowledge, with a specific emphasis on building a supportive,
+          collaborative community where <strong>Brown</strong> and{" "}
+          <strong>Met</strong> students can learn and grow together.
+          <br />
+          <br />
+          We believe, with the right support, everyone can be a leader and
+          bringing about an environmentally just world depends on it.
+        </p>
+      </div>
 
-            <div className={`mission-vision-container ${quicksand.className}`}>
-                <div className="mission-vision-image-wrapper">
-                    <Image
-                        src="/visionImage.jpg"
-                        alt="Vision"
-                        width={300}
-                        height={300}
-                        className="mission-vision-image"
-                    />
-                    <div className="overlay">
-                        <p className="default-text">Vision</p>
-                        <p className="hover-text">
-                            Students have and use the necessary lifelong
-                            leadership skills to bring about environmental
-                            justice in their communities and the world.
-                        </p>
-                    </div>
-                </div>
-                <div className="mission-vision-image-wrapper">
-                    <Image
-                        src="/missionImage.png"
-                        alt="Mission"
-                        width={300}
-                        height={300}
-                        className="mission-vision-image"
-                    />
-                    <div className="overlay">
-                        <p className="default-text">Mission</p>
-                        <p className="hover-text">
-                            To promote environmental education, leadership
-                            development, and personal growth among high school
-                            students at the Met.
-                        </p>
-                    </div>
-                </div>
-            </div>
+      <div className={`mission-vision-container ${quicksand.className}`}>
+        <div className="mission-vision-image-wrapper">
+          <Image
+            src="/visionImage.jpg"
+            alt="Vision"
+            width={300}
+            height={300}
+            className="mission-vision-image"
+          />
+          <div className="overlay">
+            <p className="default-text">Vision</p>
+            <p className="hover-text">
+              Students have and use the necessary lifelong leadership skills to
+              bring about environmental justice in their communities and the
+              world.
+            </p>
+          </div>
+        </div>
+        <div className="mission-vision-image-wrapper">
+          <Image
+            src="/missionImage.png"
+            alt="Mission"
+            width={300}
+            height={300}
+            className="mission-vision-image"
+          />
+          <div className="overlay">
+            <p className="default-text">Mission</p>
+            <p className="hover-text">
+              To promote environmental education, leadership development, and
+              personal growth among high school students at the Met.
+            </p>
+          </div>
+        </div>
+      </div>
 
-            <style>{`
+      <style>{`
 
         .main-container {
           display: flex;
@@ -229,7 +231,12 @@ export default function Home() {
         .overlay:hover .hover-text {
           opacity: 1;
         }
+        
+        .blurred {
+          filter: blur(4px);
+          pointer-events: none;
+        }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }
