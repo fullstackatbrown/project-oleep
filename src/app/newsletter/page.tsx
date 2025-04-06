@@ -1,58 +1,64 @@
-import NewsletterCard from "./NewsletterCard";
-import styles from "./Newsletter.module.css";
-import FilterDropdown from "./FilterDropdown";
+import NewsletterClient from "./NewsletterClient";
+import { createBucketClient } from "@cosmicjs/sdk";
 
-export default function Newsletter() {
-  return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Newsletters</h1>
-      <FilterDropdown/>      
-      <div className={styles.grid}>
-      <NewsletterCard 
-        date="1.1.2025" 
-        title="Example Newsletter Title" 
-        description="Exciting newsletter description here exciting newsletter description here" 
-        url = "https://google.com"
-        imageUrl="https://picsum.photos/200"
-      />
-      <NewsletterCard 
-        date="1.1.2025" 
-        title="Example Newsletter Title" 
-        description="Exciting newsletter description here exciting newsletter description here" 
-        url = "https://google.com"
-        imageUrl="https://picsum.photos/200"
-      />
-      <NewsletterCard 
-        date="1.1.2025" 
-        title="Example Newsletter Title" 
-        description="Exciting newsletter description here exciting newsletter description here" 
-        url = "https://google.com"
-        imageUrl="https://picsum.photos/200"
-      />
-      <NewsletterCard 
-        date="1.1.2025" 
-        title="Example Newsletter Title" 
-        description="Exciting newsletter description here exciting newsletter description here" 
-        url = "https://google.com"
-        imageUrl="https://picsum.photos/200"
-      />
-            <NewsletterCard 
-        date="1.1.2025" 
-        title="Example Newsletter Title" 
-        description="Exciting newsletter description here exciting newsletter description here" 
-        url = "https://google.com"
-        imageUrl="https://picsum.photos/200"
-      />
-            <NewsletterCard 
-        date="1.1.2025" 
-        title="Example Newsletter Title" 
-        description="Exciting newsletter description here exciting newsletter description here" 
-        url = "https://google.com"
-        imageUrl="https://picsum.photos/200"
-      />
+const cosmic = createBucketClient({
+  bucketSlug: process.env.NEXT_PUBLIC_COSMIC_BUCKET_SLUG || "",
+  readKey: process.env.NEXT_PUBLIC_COSMIC_READ_KEY || "",
+});
 
-    </div>
-    </div>
-  );
+type CosmicNewsletterResponse = {
+  objects: Array<{
+      slug: string;
+      title: string;
+      type: string;
+      metadata: {
+          title: string;
+          date: string;
+          image: {
+            url: string;
+            imgix_url: string;
+          }
+          content: {
+            url: string;
+            imgix_url: string;
+          }
+      };
+  }>;
+  total: number;
+};
+
+async function fetchNewsletters() {
+  try {
+      const { objects } = await cosmic.objects
+          .find({ type: "newsletters" })
+          .props("slug,title,metadata,type")
+          .depth(1);
+      const newsletters = objects as CosmicNewsletterResponse["objects"];
+      return newsletters
+      .map((obj) => ({
+        id: obj.slug,
+        title: obj.metadata.title,
+        date: obj.metadata.date,
+        imageUrl: obj.metadata.image?.url ||
+        obj.metadata.image?.imgix_url ||
+        "/noMentorImage.jpg", contentURL: obj.metadata.content,
+        contentURL:
+        obj.metadata.content?.url ||
+        obj.metadata.content?.imgix_url ||
+        "/noMentorImage.jpg",
+  }));
+
+  } catch (error) {
+      console.error("Error fetching newsletter:", error);
+      return [];
+  }
 }
 
+
+
+/* The newsletter*/
+
+export default async function Newsletter() {
+  const newsletters = await fetchNewsletters();
+  return <NewsletterClient newsletters={newsletters} />;
+}

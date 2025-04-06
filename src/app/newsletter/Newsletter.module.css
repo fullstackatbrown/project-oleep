@@ -1,36 +1,66 @@
+.loadMoreButton {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #00b118;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.loadMoreButton:hover {
+  background-color: #187a31;
+}
+
 .container {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .title {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .filterButton {
-    display: block; /* Makes it a block element */
-    margin: 10px auto; /* Centers it horizontally */
-    padding: 8px 16px;
-    font-size: 16px;
-    background-color: #e0e0e0; /* Light gray */
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  .filterButton:hover {
-    background-color: #d6d6d6; /* Slightly darker on hover */
-  }
-  
-  .grid {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+  padding-left: 20px; 
+  padding-right: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.filterButton {
+  display: block; /* Makes it a block element */
+  margin: 10px auto; /* Centers it horizontally */
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #e0e0e0; /* Light gray */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.filterButton:hover {
+  background-color: #d6d6d6; /* Slightly darker on hover */
+}
+
+.grid {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  justify-content: center;
+  align-items: start;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none; /* Removes default list bullets */
+}
+
+
+.listItem {
+  display: list-item;
+  text-align: -webkit-match-parent;
+  unicode-bidi: isolate;
+}

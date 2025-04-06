@@ -3,28 +3,37 @@
 import { useState } from "react";
 import styles from "./FilterDropdown.module.css";
 
-const FilterDropdown = () => {
+const FilterDropdown = ({ selected, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("All news");
+  const [selectedOption, setSelectedOption] = useState("Newest");
 
-  const handleSelect = (option: string) => {
-    setSelectedOption(option);
-    setIsOpen(false); // Close dropdown after selecting an option
+  const handleSelect = (option) => {
+    onChange(option);
+    setIsOpen(false);
   };
 
   return (
     <div className={styles.dropdown}>
-      <button className={styles.filterButton} onClick={() => setIsOpen((prev) => !prev)}>
-        {selectedOption}
+      <button
+        className={styles.filterButton}
+        onClick={() => setIsOpen((prev) => !prev)}
+      >
+        {selected}
         <span className={styles.arrow}>{isOpen ? "▲" : "▼"}</span>
       </button>
 
       <div className={`${styles.dropdownMenu} ${isOpen ? styles.show : ""}`}>
-        <p className={styles.option} onClick={() => handleSelect("All news")}>
-          All news
+        <p className={styles.option} onClick={() => handleSelect("Newest")}>
+          Newest
         </p>
-        <p className={styles.option} onClick={() => handleSelect("Local news")}>
-          Local news
+        <p className={styles.option} onClick={() => handleSelect("Oldest")}>
+          Oldest
+        </p>
+        <p className={styles.option} onClick={() => handleSelect("A-Z")}>
+          A-Z
+        </p>
+        <p className={styles.option} onClick={() => handleSelect("Z-A")}>
+          Z-A
         </p>
       </div>
     </div>

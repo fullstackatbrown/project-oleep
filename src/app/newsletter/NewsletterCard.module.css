@@ -2,10 +2,13 @@
   width: 100%;
   max-width: 320px; /* Adjusts card size */
   padding: 16px;
-  background-color: #e0e0e0;
+  background-color: #b0d0a95a;
   border-radius: 12px;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle depth */
   position: relative;
+  transition: transform 0.2s ease-in-out;
+
 }
 
 
@@ -19,10 +22,10 @@
   position: absolute;
   top: 12px;
   right: 12px;
-  background-color: #c4c4c4;
+  background-color: #2f8d2d;
   padding: 5px 10px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 20px;
   font-weight: bold;
   z-index: 2;
 }
@@ -58,7 +61,7 @@
 }
 .card:hover .title,
 .card:hover .description {
-  color: #0073b1; 
+  color: #11be4bc5; 
 }
 .card:hover .imagePlaceholder img {
   transform: scale(1.1);
