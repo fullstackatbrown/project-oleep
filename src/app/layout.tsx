@@ -3,11 +3,17 @@ import NavBar from "@/components/NavBar";
 export default function RootLayout({
     children,
 }: Readonly<{ children: React.ReactNode }>) {
-    return (
-        <html lang="en">
-            <body>
-                <NavBar />
-                {/*
+  return (
+    <html lang="en">
+       <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body>
+        <NavBar />
+        {/*
          <nav className="p-4 bg-green-700 text-white flex gap-4">
           <a href="/">Home</a>
           <a href="test-cms">Test CMS</a>

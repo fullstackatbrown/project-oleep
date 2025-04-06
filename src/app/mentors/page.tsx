@@ -1,3 +1,5 @@
+export default function Mentors() {
+
 import { createBucketClient } from "@cosmicjs/sdk";
 import "./mentors.css";
 import { Quicksand } from "next/font/google";
@@ -61,7 +63,6 @@ async function fetchMentors() {
 
 export default async function Mentors() {
     const mentors = await fetchMentors();
-
     return (
         <div className={`p-8 ${quicksand.className}`} id="page-container">
             <h1 style={{ marginTop: 0, marginBottom: "2rem" }}>Mentors</h1>

@@ -17,6 +17,7 @@ export default function Home() {
                     width={490}
                     height={433}
                     className="home-image"
+                    style={{ objectFit: "contain" }} 
                 />
                 <div className={`text-content ${quicksand.className}`}>
                     <h1 className={"title"}>
@@ -92,23 +93,31 @@ export default function Home() {
             </div>
 
             <style>{`
-
         .main-container {
           display: flex;
           align-items: center;
           flex-direction: column;
+          width: 100vw; /* Use viewport width instead of percentage */
+          max-width: 100%; /* Prevent overflow */
+          overflow-x: hidden;
+          margin: 0;
+          padding: 0;
         }
+          
         .home-container {
           background: linear-gradient(135deg, #DFF2D8, #83D28D);
           width: 100%;
-          height: 547px;
+          min-height: 547px;
           display: flex;
           align-items: center;
           justify-content: center;
+          flex-wrap: wrap;
         }
 
         .homeImage{
-          object-fit: contain;
+          position: relative; /* Required for 'fill' prop */
+          width: 100%;
+          height: auto;
         }
 
         .text-content {
