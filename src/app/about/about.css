@@ -1,47 +1,47 @@
-body {
-  font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'Segoe UI', sans-serif;
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
   font-size: 1.125rem; 
   line-height: 1.7;
   color: #1a1a1a;
 }
 
-
 .about-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; 
-    gap: 10px 2em;
-    align-items: start;
-    justify-content: space-between;
-    padding: 2rem;
-  }
-  
-  .card-item {
-    background-color: rgb(113, 196, 131);
-    padding: 2rem;
-    border-radius: 10px;
-    height: 300px;
-    width: 400px;
-  }
-  
-  h1.text-center, 
-  h2.text-center {
-    text-align: center;
-    width: 100%;
-    display: block;
-  }
-  
-  section.about-section {
-    padding-left: 8%;
-    padding-right: 8%;
-  }
-  
-  .history-section {
-    background-color: #f9fafb;
-    padding: 2rem;
-    border-radius: 10px;
-    margin-top: 2rem;
-  }
-  
-  .history-section p {
-    line-height: 1.6;
-  }
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 2rem;
+  justify-items: center;
+  justify-content: center;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 4rem;
+}
+
+.card-item {
+  background-color: rgb(113, 196, 131);
+  border-radius: 10px;
+  padding: 2rem;
+  aspect-ratio: 1 / 1;
+  width: 400px;
+  height: auto;
+}
+
+h1.text-center, 
+h2.text-center {
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+.history-section {
+  padding: 2rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+  padding-left: 8%;
+  padding-right: 8%;
+}
+.history-section p {
+  line-height: 1.6;
+}
