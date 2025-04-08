@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import "./globals.css"; 
 import { Quicksand } from "next/font/google";
 
 const quicksand = Quicksand({
@@ -8,30 +9,29 @@ const quicksand = Quicksand({
 });
 
 export default function Home() {
-    return (
-        <div className="main-container">
-            <div className="home-container">
-                <Image
-                    src="/homeImage.png"
-                    alt="Environmental Illustration"
-                    width={490}
-                    height={433}
-                    className="home-image"
-                    style={{ objectFit: "contain" }} 
-                />
-                <div className={`text-content ${quicksand.className}`}>
-                    <h1 className={"title"}>
-                        Outdoor
-                        <br />
-                        Leadership and
-                        <br />
-                        <span className="outlineEnv">Environmental</span>
-                        <br />
-                        Education Program
-                    </h1>
-                    <button className="donate-button">Donate</button>
-                </div>
-            </div>
+  return (
+    <div className ="main-container">
+      <div className="home-container">
+        <Image
+          src="/homeImage.png"
+          alt="Environmental Illustration"
+          width={490}
+          height={433}
+          className="home-image"
+        />
+        <div className={`text-content ${quicksand.className}`}>
+          <h1 className={"title"}>
+            Outdoor
+            <br />
+            Leadership and
+            <br />
+            <span className="outlineEnv">Environmental</span>
+            <br />
+            Education Program
+          </h1>
+          <button className="donate-button">Donate</button>
+        </div>
+      </div>
 
             <div className="who-we-are-container">
                 <h1 className={`who-we-are ${quicksand.className}`}>
@@ -239,6 +239,6 @@ export default function Home() {
           opacity: 1;
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }
