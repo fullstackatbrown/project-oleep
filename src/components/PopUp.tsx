@@ -8,8 +8,14 @@ const quicksand = Quicksand({
 });
 
 const DonatePopup = ({ onClose }: { onClose: () => void }) => {
+  const handleOverlayClick = (e: React.MouseEvent) => {
+    // Close the popup if the overlay (background) is clicked
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
   return (
-    <div className="popup-overlay">
+    <div className="popup-overlay" onClick={handleOverlayClick}>
       <div className={`popup ${quicksand.className}`}>
         <h2>Secure Online Giving!</h2>
         <p>
@@ -24,14 +30,13 @@ const DonatePopup = ({ onClose }: { onClose: () => void }) => {
           . Just follow the steps below:
         </p>
         <ol>
-          <li>Enter your desired gift amount.</li>
-          <li>Under the Designation dropdown, select “Other”.</li>
+          <li>1. Enter your desired gift amount.</li>
+          <li>2. Under the Designation dropdown, select “Other”.</li>
           <li>
-            In the special instructions/comments section, write: “Outdoor
+            3. In the special instructions/comments section, write: “Outdoor
             Leadership and Environmental Education Program.”
           </li>
         </ol>
-        <button onClick={onClose}>Close</button>
       </div>
 
       <style jsx>{`
@@ -55,31 +60,19 @@ const DonatePopup = ({ onClose }: { onClose: () => void }) => {
           max-width: 400px;
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
           text-align: left;
+          font-size: 16px;
         }
 
         .popup h2 {
           font-size: 20px;
           font-weight: bold;
           margin-bottom: 10px;
+          text-align: center;
         }
 
         .popup a {
           color: #1a73e8;
           text-decoration: underline;
-        }
-
-        .popup button {
-          margin-top: 20px;
-          padding: 8px 16px;
-          border: none;
-          background-color: #5ec272;
-          color: white;
-          border-radius: 10px;
-          cursor: pointer;
-        }
-
-        .popup button:hover {
-          background-color: #4ca45a;
         }
       `}</style>
     </div>

@@ -8,19 +8,8 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body, html {
-  margin: 0;
-  padding: 0;
-  line-height: 1.5;
+body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, 'Quicksand', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
-

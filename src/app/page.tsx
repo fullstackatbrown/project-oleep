@@ -13,34 +13,16 @@ const quicksand = Quicksand({
 
 export default function Home() {
   const [showPopup, setShowPopup] = useState(false);
+  const closePopup = () => setShowPopup(false);
+
   return (
-    <div className="main-container">
-      {showPopup && <PopUp onClose={() => setShowPopup(false)} />}
-      <div className={`home-container ${showPopup ? "blurred" : ""}`}>
-        <Image
-          src="/homeImage.png"
-          alt="Environmental Illustration"
-          width={490}
-          height={433}
-          className="home-image"
-        />
-        <div className={`text-content ${quicksand.className}`}>
-          <h1 className={"title"}>
-            Outdoor
-            <br />
-            Leadership and
-            <br />
-            <span className="outlineEnv">Environmental</span>
-            <br />
-            Education Program
-          </h1>
-          <button className="donate-button" onClick={() => setShowPopup(true)}>
-            Donate
-          </button>
+    <>
+      {showPopup && (
+        <div className="popup-container" onClick={closePopup}>
+          <PopUp onClose={closePopup} />
         </div>
-      </div>
-      return (
-      <div className="main-container">
+      )}
+      <div className={`main-container ${showPopup ? "blurred" : ""}`}>
         <div className="home-container">
           <Image
             src="/homeImage.png"
@@ -59,23 +41,25 @@ export default function Home() {
               <br />
               Education Program
             </h1>
-            <button className="donate-button">Donate</button>
+            <button
+              className="donate-button"
+              onClick={() => setShowPopup(true)}
+            >
+              Donate
+            </button>
           </div>
         </div>
 
         <div className="who-we-are-container">
           <h1 className={`who-we-are ${quicksand.className}`}>Who We Are</h1>
           <p className={`who-we-are-text ${quicksand.className}`}>
-            {" "}
             OLEEP is a partnership between the Metropolitan Regional Career and
             Technical Center (the Met) and Brown University&apos;s Swearer
             Center for Public Service. We work with high school students to
             develop leadership skills as well as environmental science and
             justice knowledge, with a specific emphasis on building a
-            supportive, collaborative community where <strong>
-              Brown
-            </strong> and <strong>Met</strong> students can learn and grow
-            together.
+            supportive, collaborative community where <strong>Brown</strong> and{" "}
+            <strong>Met</strong> students can learn and grow together.
             <br />
             <br />
             We believe, with the right support, everyone can be a leader and
@@ -119,18 +103,19 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       <style>{`
         .main-container {
           display: flex;
           align-items: center;
           flex-direction: column;
-          width: 100vw; /* Use viewport width instead of percentage */
-          max-width: 100%; /* Prevent overflow */
+          width: 100vw;
+          max-width: 100%;
           overflow-x: hidden;
           margin: 0;
           padding: 0;
         }
-          
+
         .home-container {
           background: linear-gradient(135deg, #DFF2D8, #83D28D);
           width: 100%;
@@ -141,8 +126,8 @@ export default function Home() {
           flex-wrap: wrap;
         }
 
-        .homeImage{
-          position: relative; /* Required for 'fill' prop */
+        .homeImage {
+          position: relative;
           width: 100%;
           height: auto;
         }
@@ -151,7 +136,6 @@ export default function Home() {
           margin-left: 40px;
           max-width: 500px;
           line-height: 1.5;
-    
         }
 
         .title {
@@ -159,7 +143,7 @@ export default function Home() {
           font-weight: bold;
           margin-bottom: 20px;
         }
-        
+
         .outlineEnv {
           border: 3px solid #0A5C01;
           border-radius: 20px;
@@ -172,7 +156,7 @@ export default function Home() {
           padding: 20px 60px;
           border-radius: 20px;
           cursor: pointer;
-          font-color: #01280A;
+          color: #01280A;
           font-weight: bold;
           font-size: 25px;
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -198,7 +182,6 @@ export default function Home() {
           padding: 50px 150px;
         }
 
-        
         .mission-vision-container {
           display: flex;
           justify-content: center;
@@ -265,12 +248,25 @@ export default function Home() {
         .overlay:hover .hover-text {
           opacity: 1;
         }
-        
+
         .blurred {
           filter: blur(4px);
           pointer-events: none;
         }
+
+        .popup-container {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.5);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 9999;
+        }
       `}</style>
-    </div>
+    </>
   );
 }
