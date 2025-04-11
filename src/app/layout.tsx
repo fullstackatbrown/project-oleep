@@ -1,10 +1,19 @@
 import NavBar from "@/components/NavBar";
+import Footer from "@/app/footer/footer"
+import './globals.css';
+
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+       <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>
         <NavBar />
         {/*
@@ -15,10 +24,12 @@ export default function RootLayout({
           <a href="/newsletter">Newsletter</a>
           <a href="/curriculum">Curriculum</a>
           <a href="/gallery">Gallery</a>
+          <a href="/about">About</a>
         </nav> 
         */}
-        <main className="p-6">{children}</main>
-      </body>
-    </html>
-  );
+                <main className="p-6">{children}</main>
+          <Footer/>
+            </body>
+        </html>
+    );
 }

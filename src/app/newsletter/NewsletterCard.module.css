@@ -1,0 +1,68 @@
+.card {
+  width: 100%;
+  max-width: 320px; /* Adjusts card size */
+  padding: 16px;
+  background-color: #b0d0a95a;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle depth */
+  position: relative;
+  transition: transform 0.2s ease-in-out;
+
+}
+
+
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.dateTag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #2f8d2d;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 200px;
+  background-color: #d3d3d3;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.imagePlaceholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the area properly */
+  transition: transform 0.3s ease-in-out;
+  z-index: 1; 
+}
+
+.title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+.description {
+  font-size: 14px;
+  color: #555;
+  margin-top: 6px;
+}
+.card:hover .title,
+.card:hover .description {
+  color: #11be4bc5; 
+}
+.card:hover .imagePlaceholder img {
+  transform: scale(1.1);
+}
