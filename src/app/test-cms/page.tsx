@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import TestImage from '../newsletter/image';
+//import Image from 'next/image';
+import TestImage from './image';
 
 export default function TestCMS() {
     return (
