@@ -23,7 +23,7 @@ export default function About() {
         </div>
 
         <div className="history-section mt-12">
-        <h1 className="text-center font-bold mb-8" style={{ fontSize: '2rem' }}>History</h1>
+          <h1 className="text-center font-bold mb-8" style={{ fontSize: '2rem' }}>History</h1>
           <p className="mb-4">
           Founded in 1997, OLEEP, originally the Outdoor Leadership and Experiential Education Program (now the Outdoor Leadership and Environmental Education Program), has gone through several iterations. This coming fall, we’ll be launching new and exciting programming options once again. Read more about our new structure below.
           </p>
@@ -31,8 +31,8 @@ export default function About() {
           <h2 className="text-2xl font-semibold mt-8 mb-2">OLEEP 1.0</h2>
           <p className="mb-4">
           All Met student mentees interested in joining OLEEP start here. Basically a more structured version of our traditional programming offerings, OLEEP 1.0 centers on weekly environmental science and justice workshops, taught by Brown students at the Met every Wednesday afternoon. Our curriculum focuses primarily on developing climate literacy among students, in a way that centers both science and justice and emphasizes experiential, hands-on learning.
-Students enrolled in OLEEP 1.0 are assigned to a mentoring pod, groups of around two Brown student mentors and two to four Met student mentees. These pods serve as smaller “families” within OLEEP and aim to provide students with additional, individualized support and mentorship.
-The final component of OLEEP 1.0 is field trips: throughout the year, participants will go on two overnight field trips and four day field trips, all with the goal of getting youth outside and exploring their surroundings.
+          Students enrolled in OLEEP 1.0 are assigned to a mentoring pod, groups of around two Brown student mentors and two to four Met student mentees. These pods serve as smaller “families” within OLEEP and aim to provide students with additional, individualized support and mentorship.
+          The final component of OLEEP 1.0 is field trips: throughout the year, participants will go on two overnight field trips and four day field trips, all with the goal of getting youth outside and exploring their surroundings.
           </p>
           <p className="mb-4">
             Students enrolled in OLEEP 1.0 are assigned to a mentoring pod, groups of around two Brown student
