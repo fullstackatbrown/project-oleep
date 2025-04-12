@@ -247,6 +247,7 @@ export default function Home() {
 
         .overlay:hover .hover-text {
           opacity: 1;
+          margin: 20px;
         }
 
         .blurred {
