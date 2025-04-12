@@ -102,6 +102,31 @@ export default function Home() {
             </div>
           </div>
         </div>
+        
+        <div className={`our-partnership-container ${quicksand.className}`}>
+            <p className="our-partnership-text">
+              Our Partnership:
+            </p>
+            <div className={`partnership-image-container ${quicksand.className}`}>
+              <Image
+                src="/swearerImage.png"
+                alt="Swearer Center"
+                width={400}
+                height={400}
+                className="swearer-image"
+              />
+              <p className="x-text">
+                X
+              </p>
+              <Image
+                src="/metImage.png"
+                alt="The Met"
+                width={400}
+                height={400}
+                className="met-image"
+              />
+            </div>
+        </div>
       </div>
 
       <style>{`
@@ -267,6 +292,31 @@ export default function Home() {
           align-items: center;
           z-index: 9999;
         }
+
+        .our-partnership-container {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+        }
+        
+        .our-partnership-text {
+          margin: 100px;
+          font-size: 36px;
+          font-weight: bold;
+          text-decoration: underline;
+        }
+
+        .partnership-image-container {
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+        }
+        
+        .x-text {
+          font-size: 100px;
+          margin: 100px;
+        }
+
       `}</style>
     </>
   );
