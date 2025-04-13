@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import NewsletterCard from "./NewsletterCard";
+import RecentNewsletterCard from "./RecentNewsletterCard";
 import styles from "./Newsletter.module.css";
 import FilterDropdown from "./FilterDropdown";
 
@@ -22,11 +23,12 @@ const formatDate = (dateString: string): string => {
   return `${Number(month)}.${Number(day)}.${year}`;
 };
 
+// Default export - full newsletter page version
 export default function NewsletterClient({ newsletters }: NewsletterClientProps) {
   newsletters.sort((a: Newsletter, b: Newsletter) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
   const [visibleCount, setVisibleCount] = useState(3);
-  const [sortOrder, setSortOrder] = useState("Newest"); // ← track selected filter
+  const [sortOrder, setSortOrder] = useState("Newest");
 
   const loadMore = () => {
     setVisibleCount((prevCount) => prevCount + 3);
@@ -45,10 +47,10 @@ export default function NewsletterClient({ newsletters }: NewsletterClientProps)
       return dateA - dateB;
     }
     if (sortOrder === "A-Z") {
-      return titleA.localeCompare(titleB); // Alphabetical sorting A-Z
+      return titleA.localeCompare(titleB);
     }
     if (sortOrder === "Z-A") {
-      return titleB.localeCompare(titleA); // Alphabetical sorting Z-A
+      return titleB.localeCompare(titleA);
     }
     return 0;
   });
@@ -77,6 +79,32 @@ export default function NewsletterClient({ newsletters }: NewsletterClientProps)
           Load More
         </button>
       )}
+    </div>
+  );
+}
+
+// Named export - simplified version for main page
+export function RecentNewsletters({ newsletters }: NewsletterClientProps) {
+  // Only show the 2 most recent newsletters
+  const recentNewsletters = [...newsletters]
+    .sort((a: Newsletter, b: Newsletter) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 2);
+
+  return (
+    <div>
+      <div className={styles.grid}>
+        {recentNewsletters.map((newsletter, index) => (
+          <div key={index} className={styles.item}>
+            <RecentNewsletterCard
+              date={formatDate(newsletter.date)}
+              title={newsletter.title}
+              url={newsletter.contentURL}
+              imageUrl={newsletter.imageUrl}
+              description={newsletter.description}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

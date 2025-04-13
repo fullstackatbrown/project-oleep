@@ -1,16 +1,19 @@
 import React from "react";
 import Image from "next/image";
-import "./globals.css"; 
+import "./globals.css";
 import { Quicksand } from "next/font/google";
+import Newsletter from "./newsletter/page";
+import { RecentNewsletter } from "./newsletter/page";
+
 
 const quicksand = Quicksand({
-    subsets: ["latin"],
-    weight: ["400", "600", "700"],
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
 });
 
 export default function Home() {
   return (
-    <div className ="main-container">
+    <div className="main-container">
       <div className="home-container">
         <Image
           src="/homeImage.png"
@@ -33,66 +36,94 @@ export default function Home() {
         </div>
       </div>
 
-            <div className="who-we-are-container">
-                <h1 className={`who-we-are ${quicksand.className}`}>
-                    Who We Are
-                </h1>
-                <p className={`who-we-are-text ${quicksand.className}`}>
-                    {" "}
-                    OLEEP is a partnership between the Metropolitan Regional
-                    Career and Technical Center (the Met) and Brown University's
-                    Swearer Center for Public Service. We work with high school
-                    students to develop leadership skills as well as
-                    environmental science and justice knowledge, with a specific
-                    emphasis on building a supportive, collaborative community
-                    where <strong>Brown</strong> and <strong>Met</strong>{" "}
-                    students can learn and grow together.
-                    <br />
-                    <br />
-                    We believe, with the right support, everyone can be a leader
-                    and bringing about an environmentally just world depends on
-                    it.
-                </p>
-            </div>
+      <div className="who-we-are-container">
+        <h1 className={`who-we-are ${quicksand.className}`}>
+          Who We Are
+        </h1>
+        <p className={`who-we-are-text ${quicksand.className}`}>
+          {" "}
+          OLEEP is a partnership between the Metropolitan Regional
+          Career and Technical Center (the Met) and Brown University's
+          Swearer Center for Public Service. We work with high school
+          students to develop leadership skills as well as
+          environmental science and justice knowledge, with a specific
+          emphasis on building a supportive, collaborative community
+          where <strong>Brown</strong> and <strong>Met</strong>{" "}
+          students can learn and grow together.
+          <br />
+          <br />
+          We believe, with the right support, everyone can be a leader
+          and bringing about an environmentally just world depends on
+          it.
+        </p>
+      </div>
 
-            <div className={`mission-vision-container ${quicksand.className}`}>
-                <div className="mission-vision-image-wrapper">
-                    <Image
-                        src="/visionImage.jpg"
-                        alt="Vision"
-                        width={300}
-                        height={300}
-                        className="mission-vision-image"
-                    />
-                    <div className="overlay">
-                        <p className="default-text">Vision</p>
-                        <p className="hover-text">
-                            Students have and use the necessary lifelong
-                            leadership skills to bring about environmental
-                            justice in their communities and the world.
-                        </p>
-                    </div>
-                </div>
-                <div className="mission-vision-image-wrapper">
-                    <Image
-                        src="/missionImage.png"
-                        alt="Mission"
-                        width={300}
-                        height={300}
-                        className="mission-vision-image"
-                    />
-                    <div className="overlay">
-                        <p className="default-text">Mission</p>
-                        <p className="hover-text">
-                            To promote environmental education, leadership
-                            development, and personal growth among high school
-                            students at the Met.
-                        </p>
-                    </div>
-                </div>
-            </div>
+      <div className={`mission-vision-container ${quicksand.className}`}>
+        <div className="mission-vision-image-wrapper">
+          <Image
+            src="/visionImage.jpg"
+            alt="Vision"
+            width={300}
+            height={300}
+            className="mission-vision-image"
+          />
+          <div className="overlay">
+            <p className="default-text">Vision</p>
+            <p className="hover-text">
+              Students have and use the necessary lifelong
+              leadership skills to bring about environmental
+              justice in their communities and the world.
+            </p>
+          </div>
+        </div>
+        <div className="mission-vision-image-wrapper">
+          <Image
+            src="/missionImage.png"
+            alt="Mission"
+            width={300}
+            height={300}
+            className="mission-vision-image"
+          />
+          <div className="overlay">
+            <p className="default-text">Mission</p>
+            <p className="hover-text">
+              To promote environmental education, leadership
+              development, and personal growth among high school
+              students at the Met.
+            </p>
+          </div>
+        </div>
+      </div>
 
-            <style>{`
+      <div>
+
+
+        <div className={`bg-white-100 flex justify-center items-center min-h-100 p-6 pt-10`}>
+          <div className="w-full max-w-5xl">
+            <h2 className={`${quicksand.className} text-[36px] font-bold text-black mb-4`}>Lately in OLEEP...</h2>
+            <RecentNewsletter />
+            {/* Contact Info Box */}
+            <div className={"bg-white shadow-md rounded-lg p-6 justify-between"}>
+              <h3 className={`${quicksand.className} text-3xl font-semibold text-gray-900`}>
+                We always welcome questions and comments!
+              </h3>
+              <p className="text-gray-600 mt-2">
+                If you want to learn how to support OLEEP or are interested in
+                becoming a mentor or mentee, get in touch with site leaders Amanda
+                and Tamara!
+              </p>
+
+              <div className="flex justify-end">
+                <button className="bg-green-700 text-white px-6 py-2 rounded-lg hover:bg-green-800 shadow-2xl shadow-green-500/50">
+                  Email Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>{`
         .main-container {
           display: flex;
           align-items: center;
@@ -194,6 +225,24 @@ export default function Home() {
           height: 100%;
           object-fit: cover;
           border-radius: 15px;
+        }
+
+        .lately-in-oleep-container{
+            text-align: center;
+            padding: 50px 20px;
+            width: 100%;
+        }
+
+        .lately-in-oleep-title{
+            text-align: left;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .lately-in-oleep-text{
+            text-align: left;
+            font-size: 24px;
+            padding: 50px 150px;
         }
 
         .overlay {

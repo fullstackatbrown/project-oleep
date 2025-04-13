@@ -1,6 +1,6 @@
 import NewsletterClient from "./NewsletterClient";
 import { createBucketClient } from "@cosmicjs/sdk";
-
+import { RecentNewsletters } from "./NewsletterClient";
 const cosmic = createBucketClient({
   bucketSlug: process.env.NEXT_PUBLIC_COSMIC_BUCKET_SLUG || "",
   readKey: process.env.NEXT_PUBLIC_COSMIC_READ_KEY || "",
@@ -64,3 +64,11 @@ export default async function Newsletter() {
   const newsletters = await fetchNewsletters();
   return <NewsletterClient newsletters={newsletters} />;
 }
+
+/* Recent newsletters for homepage */
+export async function RecentNewsletter() {
+  const newsletters = await fetchNewsletters();
+  return <RecentNewsletters newsletters={newsletters} />;
+}
+
+
