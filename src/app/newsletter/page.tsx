@@ -22,6 +22,7 @@ type CosmicNewsletterResponse = {
             url: string;
             imgix_url: string;
           }
+          description: string;
       };
   }>;
   total: number;
@@ -46,6 +47,7 @@ async function fetchNewsletters() {
         obj.metadata.content?.url ||
         obj.metadata.content?.imgix_url ||
         "/noMentorImage.jpg",
+        description: obj.metadata.description,
   }));
 
   } catch (error) {
