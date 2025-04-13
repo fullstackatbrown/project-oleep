@@ -94,11 +94,21 @@ const NavBar = () => {
       </div>
 
       <style>{`
+
+        body, html {
+          margin: 0;
+          padding: 0;
+          overflow-x: hidden;
+          // overflow-x kinda needed to keep within the screen unless you want 
+          // to add in scrolling container for the guiding principles
+          
+        }
         .navbar {
           display: flex;
           flex-direction: column;
           align-items: center; /* Center navbar items */
           font-weight: bold;
+          width: 100%;
         }
 
         img {
@@ -109,6 +119,7 @@ const NavBar = () => {
           background-color: #ffffff;
           padding: 1rem 0;
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          width: 100%;
         }
 
         ul {
