@@ -9,11 +9,12 @@
     margin: 10px auto; /* Centers it horizontally */
     padding: 10px 15px;
     font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
     border-radius: 25px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 100px;
   }
   
 
@@ -44,6 +45,7 @@
     cursor: pointer;
     font-size: 14px;
     color: #176c24;
+    /* font-family: 'Quicksand', sans-serif;*/
   }
   
   .option:hover {

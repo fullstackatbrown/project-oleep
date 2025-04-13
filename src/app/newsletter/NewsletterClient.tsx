@@ -5,8 +5,25 @@ import NewsletterCard from "./NewsletterCard";
 import styles from "./Newsletter.module.css";
 import FilterDropdown from "./FilterDropdown";
 
-export default function NewsletterClient({ newsletters }) {
-  newsletters.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+interface Newsletter {
+  date: string;
+  title: string;
+  contentURL: string;
+  imageUrl: string;
+  description: string;
+}
+
+interface NewsletterClientProps {
+  newsletters: Newsletter[];
+}
+
+const formatDate = (dateString: string): string => {
+  const [year, month, day] = dateString.split('-');
+  return `${Number(month)}.${Number(day)}.${year}`;
+};
+
+export default function NewsletterClient({ newsletters }: NewsletterClientProps) {
+  newsletters.sort((a: Newsletter, b: Newsletter) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
   const [visibleCount, setVisibleCount] = useState(3);
   const [sortOrder, setSortOrder] = useState("Newest"); // ← track selected filter
@@ -15,7 +32,7 @@ export default function NewsletterClient({ newsletters }) {
     setVisibleCount((prevCount) => prevCount + 3);
   };
 
-  const sortedNewsletters = [...newsletters].sort((a, b) => {
+  const sortedNewsletters = [...newsletters].sort((a: Newsletter, b: Newsletter) => {
     const dateA = new Date(a.date).getTime();
     const dateB = new Date(b.date).getTime();
     const titleA = a.title.toLowerCase();
@@ -37,23 +54,24 @@ export default function NewsletterClient({ newsletters }) {
   });
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Newsletters</h1>
-      <FilterDropdown selected={sortOrder} onChange={setSortOrder} />
-
-      <ul className={styles.grid}>
+    <div>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Newsletters</h1>
+        <FilterDropdown selected={sortOrder} onChange={setSortOrder} />
+      </div>
+      <div className={styles.grid}>
         {sortedNewsletters.slice(0, visibleCount).map((newsletter, index) => (
-          <li key={index} className={styles.listItem}>
+          <div key={index} className={styles.item}>
             <NewsletterCard
-              date={newsletter.date}
+              date={formatDate(newsletter.date)}
               title={newsletter.title}
               url={newsletter.contentURL}
               imageUrl={newsletter.imageUrl}
+              description={newsletter.description}
             />
-          </li>
+          </div>
         ))}
-      </ul>
-
+      </div>
       {visibleCount < newsletters.length && (
         <button className={styles.loadMoreButton} onClick={loadMore}>
           Load More

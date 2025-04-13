@@ -1,4 +1,5 @@
 .loadMoreButton {
+  font-family: 'Quicksand', sans-serif;
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
@@ -25,14 +26,16 @@
 }
 
 .title {
+  font-family: 'Quicksand', sans-serif;
   text-align: center;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 40px;
+  font-weight: 625;
   margin-bottom: 10px;
 }
 
 .filterButton {
   display: block; /* Makes it a block element */
+  font-family: 'Quicksand', sans-serif;
   margin: 10px auto; /* Centers it horizontally */
   padding: 8px 16px;
   font-size: 16px;
@@ -49,18 +52,19 @@
 .grid {
   max-width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 10px;
   justify-content: center;
   align-items: start;
   padding: 0;
-  margin: 0 auto;
+  margin: 20px auto;
   list-style: none; /* Removes default list bullets */
 }
 
 
-.listItem {
-  display: list-item;
+.item {
   text-align: -webkit-match-parent;
   unicode-bidi: isolate;
+  margin: 0 0.5rem; 
+  justify-self: center;      
 }
