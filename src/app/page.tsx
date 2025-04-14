@@ -95,33 +95,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div>
-
-
         <div className={`bg-white-100 flex justify-center items-center min-h-100 p-6 pt-10`}>
           <div className="w-full max-w-5xl">
             <h2 className={`${quicksand.className} text-[36px] font-bold text-black mb-4`}>Lately in OLEEP...</h2>
             <RecentNewsletter />
-            {/* Contact Info Box */}
-            <div className={"bg-white shadow-md rounded-lg p-6 justify-between"}>
-              <h3 className={`${quicksand.className} text-3xl font-semibold text-gray-900`}>
-                We always welcome questions and comments!
-              </h3>
-              <p className="text-gray-600 mt-2">
-                If you want to learn how to support OLEEP or are interested in
-                becoming a mentor or mentee, get in touch with site leaders Amanda
-                and Tamara!
-              </p>
-
-              <div className="flex justify-end">
-                <button className="bg-green-700 text-white px-6 py-2 rounded-lg hover:bg-green-800 shadow-2xl shadow-green-500/50">
-                  Email Now
-                </button>
-              </div>
-            </div>
           </div>
         </div>
-      </div>
 
       <style>{`
         .main-container {

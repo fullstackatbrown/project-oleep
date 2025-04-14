@@ -92,7 +92,7 @@ export function RecentNewsletters({ newsletters }: NewsletterClientProps) {
 
   return (
     <div>
-      <div className={styles.grid}>
+      <div className={styles["recent-newsletter-grid"]}>
         {recentNewsletters.map((newsletter, index) => (
           <div key={index} className={styles.item}>
             <RecentNewsletterCard

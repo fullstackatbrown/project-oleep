@@ -17,7 +17,7 @@ const RecentNewsletterCard: React.FC<RecentNewsletterCardProps> = ({ date, title
                 </div>
                 {/* <h3 className={styles.title}>{title}</h3> */}
                 <p className={styles.description}>
-                    {description.length > 100 ? description.slice(0, 80) + '...' : description}
+                    {description.length > 100 ? description.slice(0, 79) + '...' : description}
                     <a href={url} target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
                     <span className={styles.learnMore}>  <u>Learn more</u> </span>            
                     </a>

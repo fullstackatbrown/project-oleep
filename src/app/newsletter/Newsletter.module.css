@@ -21,7 +21,7 @@
   max-width: 1100px;
   margin: auto;
   text-align: center;
-  padding-left: 20px; 
+  padding-left: 20px;
   padding-right: 20px;
 }
 
@@ -34,19 +34,23 @@
 }
 
 .filterButton {
-  display: block; /* Makes it a block element */
+  display: block;
+  /* Makes it a block element */
   font-family: 'Quicksand', sans-serif;
-  margin: 10px auto; /* Centers it horizontally */
+  margin: 10px auto;
+  /* Centers it horizontally */
   padding: 8px 16px;
   font-size: 16px;
-  background-color: #e0e0e0; /* Light gray */
+  background-color: #e0e0e0;
+  /* Light gray */
   border: none;
   border-radius: 8px;
   cursor: pointer;
 }
 
 .filterButton:hover {
-  background-color: #d6d6d6; /* Slightly darker on hover */
+  background-color: #d6d6d6;
+  /* Slightly darker on hover */
 }
 
 .grid {
@@ -58,13 +62,32 @@
   align-items: start;
   padding: 0;
   margin: 20px auto;
-  list-style: none; /* Removes default list bullets */
+  list-style: none;
 }
 
+.recent-newsletter-grid {
+  width: 100%;
+  min-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  justify-content: center;
+  align-items: start;
+  padding: 0;
+  margin: 20px auto;
+  list-style: none;
+}
+
+@media (max-width: 900px) {
+  .recent-newsletter-grid {
+    min-width: 400px;
+    grid-template-columns: 1fr;
+  }
+}
 
 .item {
   text-align: -webkit-match-parent;
   unicode-bidi: isolate;
-  margin: 0 0.5rem; 
-  justify-self: center;      
+  margin: 0 0.5rem;
+  justify-self: center;
 }
