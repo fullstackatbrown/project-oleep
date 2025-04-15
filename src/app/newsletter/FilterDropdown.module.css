@@ -4,16 +4,18 @@
   }
   
   .filterButton {
-    background: white;
-    border: 2px solid #00b11b;
+    background: rgba(156, 151, 151, 0.249);
+   /*border: 2px solid #00b11b;
     margin: 10px auto; /* Centers it horizontally */
     padding: 10px 15px;
     font-size: 16px;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
     border-radius: 25px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 100px;
   }
   
 
@@ -26,7 +28,7 @@
     top: 100%;
     left: 0;
     width: 200px;
-    background: white;
+    background: rgb(255, 255, 255);
     border-radius: 8px;
     overflow: hidden;
     z-index: 10;
@@ -43,7 +45,9 @@
     padding: 10px;
     cursor: pointer;
     font-size: 14px;
-    color: #176c24;
+    color: #181818;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
   }
   
   .option:hover {

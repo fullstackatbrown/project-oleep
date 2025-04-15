@@ -5,6 +5,8 @@ import Image from "next/image";
 import "./globals.css";
 import { Quicksand } from "next/font/google";
 import PopUp from "@/components/PopUp";
+import Newsletter from "./newsletter/page";
+import { RecentNewsletter } from "./newsletter/page";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -128,7 +130,6 @@ export default function Home() {
             </div>
         </div>
       </div>
-
       <style>{`
         .main-container {
           display: flex;
@@ -229,6 +230,24 @@ export default function Home() {
           height: 100%;
           object-fit: cover;
           border-radius: 15px;
+        }
+
+        .lately-in-oleep-container{
+            text-align: center;
+            padding: 50px 20px;
+            width: 100%;
+        }
+
+        .lately-in-oleep-title{
+            text-align: left;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .lately-in-oleep-text{
+            text-align: left;
+            font-size: 24px;
+            padding: 50px 150px;
         }
 
         .overlay {
