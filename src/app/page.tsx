@@ -1,98 +1,108 @@
 import React from "react";
 import Image from "next/image";
+import "./globals.css";
 import { Quicksand } from "next/font/google";
+import Newsletter from "./newsletter/page";
+import { RecentNewsletter } from "./newsletter/page";
+
 
 const quicksand = Quicksand({
-    subsets: ["latin"],
-    weight: ["400", "600", "700"],
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
 });
 
 export default function Home() {
-    return (
-        <div className="main-container">
-            <div className="home-container">
-                <Image
-                    src="/homeImage.png"
-                    alt="Environmental Illustration"
-                    width={490}
-                    height={433}
-                    className="home-image"
-                    style={{ objectFit: "contain" }} 
-                />
-                <div className={`text-content ${quicksand.className}`}>
-                    <h1 className={"title"}>
-                        Outdoor
-                        <br />
-                        Leadership and
-                        <br />
-                        <span className="outlineEnv">Environmental</span>
-                        <br />
-                        Education Program
-                    </h1>
-                    <button className="donate-button">Donate</button>
-                </div>
-            </div>
+  return (
+    <div className="main-container">
+      <div className="home-container">
+        <Image
+          src="/homeImage.png"
+          alt="Environmental Illustration"
+          width={490}
+          height={433}
+          className="home-image"
+        />
+        <div className={`text-content ${quicksand.className}`}>
+          <h1 className={"title"}>
+            Outdoor
+            <br />
+            Leadership and
+            <br />
+            <span className="outlineEnv">Environmental</span>
+            <br />
+            Education Program
+          </h1>
+          <button className="donate-button">Donate</button>
+        </div>
+      </div>
 
-            <div className="who-we-are-container">
-                <h1 className={`who-we-are ${quicksand.className}`}>
-                    Who We Are
-                </h1>
-                <p className={`who-we-are-text ${quicksand.className}`}>
-                    {" "}
-                    OLEEP is a partnership between the Metropolitan Regional
-                    Career and Technical Center (the Met) and Brown University's
-                    Swearer Center for Public Service. We work with high school
-                    students to develop leadership skills as well as
-                    environmental science and justice knowledge, with a specific
-                    emphasis on building a supportive, collaborative community
-                    where <strong>Brown</strong> and <strong>Met</strong>{" "}
-                    students can learn and grow together.
-                    <br />
-                    <br />
-                    We believe, with the right support, everyone can be a leader
-                    and bringing about an environmentally just world depends on
-                    it.
-                </p>
-            </div>
+      <div className="who-we-are-container">
+        <h1 className={`who-we-are ${quicksand.className}`}>
+          Who We Are
+        </h1>
+        <p className={`who-we-are-text ${quicksand.className}`}>
+          {" "}
+          OLEEP is a partnership between the Metropolitan Regional
+          Career and Technical Center (the Met) and Brown University's
+          Swearer Center for Public Service. We work with high school
+          students to develop leadership skills as well as
+          environmental science and justice knowledge, with a specific
+          emphasis on building a supportive, collaborative community
+          where <strong>Brown</strong> and <strong>Met</strong>{" "}
+          students can learn and grow together.
+          <br />
+          <br />
+          We believe, with the right support, everyone can be a leader
+          and bringing about an environmentally just world depends on
+          it.
+        </p>
+      </div>
 
-            <div className={`mission-vision-container ${quicksand.className}`}>
-                <div className="mission-vision-image-wrapper">
-                    <Image
-                        src="/visionImage.jpg"
-                        alt="Vision"
-                        width={300}
-                        height={300}
-                        className="mission-vision-image"
-                    />
-                    <div className="overlay">
-                        <p className="default-text">Vision</p>
-                        <p className="hover-text">
-                            Students have and use the necessary lifelong
-                            leadership skills to bring about environmental
-                            justice in their communities and the world.
-                        </p>
-                    </div>
-                </div>
-                <div className="mission-vision-image-wrapper">
-                    <Image
-                        src="/missionImage.png"
-                        alt="Mission"
-                        width={300}
-                        height={300}
-                        className="mission-vision-image"
-                    />
-                    <div className="overlay">
-                        <p className="default-text">Mission</p>
-                        <p className="hover-text">
-                            To promote environmental education, leadership
-                            development, and personal growth among high school
-                            students at the Met.
-                        </p>
-                    </div>
-                </div>
-            </div>
+      <div className={`mission-vision-container ${quicksand.className}`}>
+        <div className="mission-vision-image-wrapper">
+          <Image
+            src="/visionImage.jpg"
+            alt="Vision"
+            width={300}
+            height={300}
+            className="mission-vision-image"
+          />
+          <div className="overlay">
+            <p className="default-text">Vision</p>
+            <p className="hover-text">
+              Students have and use the necessary lifelong
+              leadership skills to bring about environmental
+              justice in their communities and the world.
+            </p>
+          </div>
+        </div>
+        <div className="mission-vision-image-wrapper">
+          <Image
+            src="/missionImage.png"
+            alt="Mission"
+            width={300}
+            height={300}
+            className="mission-vision-image"
+          />
+          <div className="overlay">
+            <p className="default-text">Mission</p>
+            <p className="hover-text">
+              To promote environmental education, leadership
+              development, and personal growth among high school
+              students at the Met.
+            </p>
+          </div>
+        </div>
+      </div>
 
-            <style>{`
+        <div className={`bg-white-100 flex justify-center items-center min-h-100 p-6 pt-10`}>
+          <div className="w-full max-w-5xl">
+            <h2 className={`${quicksand.className} text-[36px] font-bold text-black mb-4`}>Lately in OLEEP...</h2>
+            <RecentNewsletter />
+          </div>
+        </div>
+
+      <style>{`
         .main-container {
           display: flex;
           align-items: center;
@@ -196,6 +206,24 @@ export default function Home() {
           border-radius: 15px;
         }
 
+        .lately-in-oleep-container{
+            text-align: center;
+            padding: 50px 20px;
+            width: 100%;
+        }
+
+        .lately-in-oleep-title{
+            text-align: left;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .lately-in-oleep-text{
+            text-align: left;
+            font-size: 24px;
+            padding: 50px 150px;
+        }
+
         .overlay {
           position: absolute;
           top: 0;
@@ -239,6 +267,6 @@ export default function Home() {
           opacity: 1;
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }
