@@ -28,9 +28,8 @@ export default function RootLayout({
         </nav> 
         */}
                 <main className="p-6">{children}</main>
-          <Footer/>
+                <Footer></Footer>
             </body>
-            <Footer></Footer>
         </html>
     );
 }
