@@ -1,0 +1,76 @@
+.card {
+  width: 100%;
+  max-width: 420px;
+  /* Adjusts card size */
+  padding: 16px;
+  /*background-color: #b0d0a95a;*/
+  border-radius: 12px;
+  text-align: center;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle depth */
+  position: relative;
+  transition: transform 0.2s ease-in-out;
+  justify-self: center;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.dateTag {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background-color: #686f68bd;
+  padding: 8px 10px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 2;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.imagePlaceholder {
+  width: 400px;
+  height: 400px;
+  background-color: #d3d3d3;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.imagePlaceholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensures the image covers the area properly */
+  transition: transform 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 12px;
+  font-family: 'Quicksand', sans-serif;
+  text-align: left;
+}
+
+.description {
+  font-size: 20px;
+  color: #555;
+  margin-top: 6px;
+  font-family: 'Quicksand', sans-serif;
+  text-align: left;
+  font-weight: normal;
+}
+
+.card:hover .title,
+.card:hover .description {
+  color: #11be4bc5;
+}
+
+.card:hover .imagePlaceholder img {
+  transform: scale(1.1);
+}
