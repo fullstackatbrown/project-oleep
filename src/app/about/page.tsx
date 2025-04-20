@@ -12,11 +12,11 @@ export default function About() {
             { title: "Science Education", content: "Our workshops provide a space for students to learn about the physical world around them. While building climate change literacy and fostering scientific curiosity, students develop empirical and quantitative reasoning skills as envisioned by the Met." },
             { title: "Mentorship", content: "Mentorship provides students with guidance, support, and friendship while they grow into young leaders and discover their next steps, particularly navigating the process of applying to and attending college, technical school, and/or the workforce ." },
             { title: "Community", content: "All students deserve the chance to learn and experiment in a safe and supportive environment where they feel valued for who they are as individuals. We believe in creating brave spaces where students can take chances, learn collaboratively, and support each other." },
-            { title: "Leadership", content: "A world increasingly threatened by climate change and environmental degradation is a world that demands leadership from us all. Through open discussion and creativity, OLEEP offers a place for all students to determine their strengths, build their skills, and discover the way they lead." },
+            { title: "Leadership", content: "A world increasingly threatened by climate change and environmental degradation is a world that demands leadership from us all. There’s no one leadership style. Through open discussion and creativity, OLEEP offers a place for all students to determine their strengths, build their skills, and discover the way they lead." },
             { title: "Outdoors", content: "We believe that exploring the natural world provides endless learning opportunities and that strong community bonds can be developed through shared exposure to many different and unfamiliar scenarios."}
           ].map(({ title, content }) => (
             <div className="card-item" key={title}>
-              <h2 className="font-bold text-lg text-center mb-2">{title}</h2>
+              <h2 className="font-semibold text-lg text-center mb-2">{title}</h2>
               <p>{content}</p>
             </div>
           ))}
