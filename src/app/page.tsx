@@ -104,32 +104,41 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
+
         <div className={`our-partnership-container ${quicksand.className}`}>
-            <p className="our-partnership-text">
-              Our Partnership:
-            </p>
-            <div className={`partnership-image-container ${quicksand.className}`}>
-              <Image
-                src="/swearerImage.png"
-                alt="Swearer Center"
-                width={400}
-                height={400}
-                className="swearer-image"
-              />
-              <p className="x-text">
-                X
-              </p>
-              <Image
-                src="/metImage.png"
-                alt="The Met"
-                width={400}
-                height={400}
-                className="met-image"
-              />
+          <p className="our-partnership-text">Our Partnership:</p>
+          <div className={`partnership-image-container ${quicksand.className}`}>
+            <Image
+              src="/swearerImage.png"
+              alt="Swearer Center"
+              width={400}
+              height={400}
+              className="swearer-image"
+            />
+            <p className="x-text">X</p>
+            <Image
+              src="/metImage.png"
+              alt="The Met"
+              width={400}
+              height={400}
+              className="met-image"
+            />
+          </div>
+          <div
+            className={`bg-white-100 flex justify-center items-center min-h-100 p-6 pt-10`}
+          >
+            <div className="w-full max-w-5xl">
+              <h2
+                className={`${quicksand.className} text-[36px] font-bold text-black mb-4`}
+              >
+                Lately in OLEEP...
+              </h2>
+              <RecentNewsletter />
             </div>
+          </div>
         </div>
       </div>
+
       <style>{`
         .main-container {
           display: flex;
