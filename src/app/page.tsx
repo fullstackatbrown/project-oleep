@@ -43,7 +43,7 @@ export default function Home() {
         <p className={`who-we-are-text ${quicksand.className}`}>
           {" "}
           OLEEP is a partnership between the Metropolitan Regional
-          Career and Technical Center (the Met) and Brown University's
+          Career and Technical Center (the Met) and Brown University
           Swearer Center for Public Service. We work with high school
           students to develop leadership skills as well as
           environmental science and justice knowledge, with a specific
@@ -93,7 +93,37 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </div>
+        </div>
+        
+        <div className="partnership-section">
+            <h2 className="partnership-title">Our Partnership</h2>
+
+            <div className="logos-row">
+              <Image src="/swearer.png" alt="Swearer Center Logo" height={140} width={395} />
+            <Image src="/cross.png" alt="x icon" height={40} width = {40} />
+            <Image src="/met_logo.png" alt="The Met School Logo" height={150} width={320} />
+            </div>
+
+            <div className="description-row">
+            <div className="desc-box">
+               <strong>The Swearer Center</strong> is the public service center of Brown University. Aiming to combine community engagement, social innovation, and engaged scholarship through experiential learning, Swearer connects students, faculty, and community partners as part of the university’s educational mission. These valued relationships are based in values of ethical and engaged student leadership; reciprocity and respect; diversity, equity, and inclusion; social justice; and intellectual rigor. Today, the Center works with more than 1,200 Brown students and 100+ community partners mostly located in the Greater Providence area.
+               <br /><br />
+               
+                 Swearer is a community of scholars, students, practitioners and community members that works together to build on community strengths and address community challenges. The Center’s work engages all as co-learners, co-teachers, co-actors and co-creators of knowledge and action. Through the creative capacities of its students, faculty and community partners, members explore, build and implement collaborative, radically strategic projects, programs and initiatives. Their work yields transformative learning, and positive sustainable change, through collective action.
+                  <br /><br />
+                 Check out its website <a href="https://swearer.brown.edu/" className="inline-link">here</a>.
+            </div>
+
+            <div className="desc-box">
+               <strong>The Met</strong> is a network of six small, public high schools located in Providence and Newport, Rhode Island. With high standards and strong family engagement, the Met’s individualized learning approach has proven successful in unlocking students’ passion for learning. The Met empowers its students to take charge of their learning, to become responsible citizens and life-long learners. The hallmarks of a MET education include internships, individual learning plans, advisory, and a breakthrough college transition program.
+               <br /><br />
+               Every student has an individualized learning plan built around that child’s needs and interests, while incorporating the <strong>Met</strong>’s rigorous learning goals. Parents and mentors are active members of the student’s learning plan team, working with the advisor to develop the best curriculum for that child. Strong relationships with parents, family, the community, business, government, and other educational institutions are key factors that contribute to the success of Met students.
+               <br /><br />
+               For more information, check out its website <a href="https://www.themethighschool.org/" className="inline-link">here</a>.
+            </div>
+            </div>
+         </div>
+        
 
         <div className={`bg-white-100 flex justify-center items-center min-h-100 p-6 pt-10`}>
           <div className="w-full max-w-5xl">
@@ -266,6 +296,49 @@ export default function Home() {
         .overlay:hover .hover-text {
           opacity: 1;
         }
+
+         .partnership-section {
+         text-align: center;
+         padding: 40px 20px;
+         font-family: 'Inter', sans-serif;
+         }
+
+         .partnership-title {
+         font-size: 24px;
+         font-weight: bold;
+         margin-bottom: 30px;
+         }
+
+         .logos-row {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         gap: 30px;
+         margin-bottom: 40px;
+         flex-wrap: wrap;
+         }
+
+         .description-row {
+         display: flex;
+         justify-content: center;
+         gap: 40px;
+         flex-wrap: wrap;
+         }
+
+         .desc-box {
+         max-width: 400px;
+         text-align: left;
+         padding: 20px;
+         border: 1px solid #ddd;
+         border-radius: 12px;
+         background-color: #fff;
+         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
+         }
+
+         .inline-link {
+         color: #0077cc;
+         text-decoration: underline;
+}
       `}</style>
     </div>
   );
