@@ -26,6 +26,7 @@ export default function RootLayout({
           <a href="/about">About</a>
         </nav> 
         */}
+
         <main className="p-6">{children}</main>
         <Footer />
       </body>
