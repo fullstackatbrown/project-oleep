@@ -1,14 +1,13 @@
 import NavBar from "@/components/NavBar";
-import Footer from "@/app/footer/footer"
-import './globals.css';
-
+import Footer from "@/app/footer/footer";
+import "./globals.css";
 
 export default function RootLayout({
-    children,
+  children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-       <head>
+      <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
           rel="stylesheet"
@@ -27,9 +26,10 @@ export default function RootLayout({
           <a href="/about">About</a>
         </nav> 
         */}
-                <main className="p-6">{children}</main>
-                <Footer></Footer>
-            </body>
-        </html>
-    );
+
+        <main className="p-6">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
 }
