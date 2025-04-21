@@ -1,50 +1,56 @@
-export default function Curriculum() {
+import { createBucketClient } from "@cosmicjs/sdk";
+import { format, parseISO } from 'date-fns';
+
+export default async function Curriculum() {
+  const cosmic = createBucketClient({
+    bucketSlug: 'fullstack-oleep-production',
+    readKey: 'OgbgGgGqXoTSTvpdJ3NtQuU0I5sCWRfj60IBS0SFGy9Y7n0unh'
+  });
+
+  const { objects: curricula } = await cosmic.objects
+    .find({ type: 'curricula' })
+    .limit(10)
+    .props('slug,title,metadata,type')
+    .depth(1);
+  
+    console.log('Curricula objects:', JSON.stringify(curricula, null, 2));
+
+
   return (
     <div className="parent">
       <div className="content-wrapper">
         <div className="header">
-            <div className="info-box">
-              <p>This page serves as a comprehensive resource for all our weekly environmental workshops. Here, you will find PDF files containing valuable materials, presentations, and guides from each session.</p>
-              <p>We update this page regularly to ensure you have access to the latest information, insights, and discussions from our workshops.</p>
-            </div>
+          <div className="info-box">
+            <p>This page serves as a comprehensive resource for all our weekly environmental workshops. Here, you will find PDF files containing valuable materials, presentations, and guides from each session.</p>
+            <p>We update this page regularly to ensure you have access to the latest information, insights, and discussions from our workshops.</p>
+          </div>
         </div>
+
         <div className="workshop-program">
           <h1>Workshop Program</h1>
-            <div className="event">
-              <div className="date">
-                <p>23</p>
-                <p>Fri</p>
+          {curricula.map((item) => {
+            const dateObj = item.metadata?.date ? parseISO(item.metadata.date) : null;
+            const day = dateObj ? format(dateObj, 'd') : '??';
+            const weekday = dateObj ? format(dateObj, 'EEE') : '??';
+
+            return (
+              <div className="event" key={item.slug}>
+                <div className="event-left">
+                <div className="date">
+                  <p>{day}</p>
+                  <p>{weekday}</p>
+                </div>
+                <h3>{item.title}</h3>
+                </div>
+                <div className="event-right">
+                  <p>2 hours</p>
+                  <a href={item.metadata?.pdf?.url} target="_blank" rel="noopener noreferrer">
+                    <button className="download-button">Download</button>
+                  </a>
+                  </div>
               </div>
-              <h3>Sustainable Living & Zero-Waste Practices</h3>
-            </div>
-            <div className="event">
-              <div className="date">
-                <p>23</p>
-                <p>Fri</p>
-              </div>
-              <h3>Sustainable Living & Zero-Waste Practices</h3>
-            </div>
-            <div className="event">
-              <div className="date">
-                <p>23</p>
-                <p>Fri</p>
-              </div>
-              <h3>Sustainable Living & Zero-Waste Practices</h3>
-            </div>
-            <div className="event">
-              <div className="date">
-                <p>23</p>
-                <p>Fri</p>
-              </div>
-              <h3>Sustainable Living & Zero-Waste Practices</h3>
-            </div>
-            <div className="event">
-              <div className="date">
-                <p>23</p>
-                <p>Fri</p>
-              </div>
-              <h3>Sustainable Living & Zero-Waste Practices</h3>
-            </div>
+            );
+          })}
         </div>
       </div>
 
@@ -102,6 +108,7 @@ export default function Curriculum() {
       .event {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         border: 1px solid black;
         padding: 8px;
         width: 100%;
@@ -110,6 +117,19 @@ export default function Curriculum() {
         border-radius: 10px;
         gap: 20px;
         font-family: Quicksand;
+      }
+
+      .event-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-grow: 1;
+      }
+
+      .event-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
       }
 
       .date {
