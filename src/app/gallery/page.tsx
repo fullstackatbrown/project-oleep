@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { createBucketClient } from '@cosmicjs/sdk';
-import PhotoAlbum from 'react-photo-album';
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
 interface CosmicImage {
   id: string;
@@ -18,42 +18,56 @@ interface CosmicImage {
 }
 
 const Gallery = () => {
-  const [photos, setPhotos] = React.useState<Array<{
-    src: string;
-    width: number;
-    height: number;
-    alt: string;
-  }>>([]);
+  const [photos, setPhotos] = useState<Array<{ src: string; alt: string }>>([]);
 
-  React.useEffect(() => {
-    const cosmic = createBucketClient({
-      bucketSlug: process.env.NEXT_PUBLIC_COSMIC_BUCKET_SLUG!,
-      readKey: process.env.NEXT_PUBLIC_COSMIC_READ_KEY!,
-    });
+  useEffect(() => {
+    async function fetchPhotos() {
+      try {
+        const cosmic = createBucketClient({
+          bucketSlug: process.env.NEXT_PUBLIC_COSMIC_BUCKET_SLUG!,
+          readKey: process.env.NEXT_PUBLIC_COSMIC_READ_KEY!,
+        });
 
-    cosmic.objects.find({ type: 'gallery-images' })
-      .props('metadata,title')
-      .then(({ objects }) => {
-        setPhotos(objects.map((img: CosmicImage) => ({
-          src: img.metadata.image?.imgix_url 
-            ? `${img.metadata.image.imgix_url}?w=300&auto=format`  // imgix resize
-            : img.metadata.image?.url || '',
-          width: 2,    
-          height: 1,
-          alt: img.title,
-        })).filter(photo => photo.src));
-      });
+        const { objects } = await cosmic.objects
+          .find({ type: 'gallery-images' })
+          .props('metadata,title');
+
+        const photosData = objects
+          .map((img: CosmicImage) => {
+            const imageUrl = img.metadata.image?.imgix_url
+              ? `${img.metadata.image.imgix_url}?w=300&auto=format`
+              : img.metadata.image?.url || '';
+            return {
+              src: imageUrl,
+              alt: img.title,
+            };
+          })
+          .filter(photo => photo.src);
+
+        setPhotos(photosData);
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      }
+    }
+    fetchPhotos();
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto px-4">
-      <PhotoAlbum 
-        photos={photos} 
-        layout="rows" 
-        targetRowHeight={100}  
-      />
+    <div className="max-w-5xl mx-auto px-100">
+      <ResponsiveMasonry columnsCountBreakPoints={{ 0: 4 }}>
+        <Masonry gutter="10px">
+          {photos.map((photo, index) => (
+            <img
+              key={index}
+              src={photo.src}
+              alt={photo.alt}
+              style={{ width: "100%", display: "block", borderRadius: "8px" }}
+            />
+          ))}
+        </Masonry>
+      </ResponsiveMasonry>
     </div>
   );
 };
-  
+
 export default Gallery;
