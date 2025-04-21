@@ -103,8 +103,8 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
             <Image
               src="/missionImage.png"
               alt="Mission"
-              width={300}
-              height={300}
+              width={400}
+              height={400}
               className="mission-vision-image"
             />
             <div className="overlay">
@@ -116,25 +116,199 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
             </div>
           </div>
         </div>
+        <div className="partnership-section">
+          <p className="our-partnership-text">Our Partnership:</p>
 
-        <div className={`our-partnership-container ${quicksand.className}`}>
+          <div className="partnership-columns">
+            {/* Swearer column */}
+            <div className="partner-block">
+              <Image
+                src="/swearerImage.png"
+                alt="Swearer Center"
+                width={300}
+                height={300}
+                className="partner-logo"
+              />
+              <div className="partner-description">
+                <p>
+                  <strong>The Swearer Center</strong> is the public service
+                  center of Brown University. Aiming to combine community
+                  engagement, social innovation, and engaged scholarship through
+                  experiential learning, Swearer connects students, faculty, and
+                  community partners as part of the university’s educational
+                  mission. These valued relationships are based in values of
+                  ethical and engaged student leadership; reciprocity and
+                  respect; diversity, equity, and inclusion; social justice; and
+                  intellectual rigor. Today, the Center works with more than
+                  1,200 Brown students and 100+ community partners mostly
+                  located in the Greater Providence area.
+                </p>
+                <p>
+                  <strong>Mission</strong>
+                  <br />
+                  Swearer is a community of scholars, students, practitioners
+                  and community members that works together to build on
+                  community strengths and address community challenges. The
+                  Center’s work engages all as co-learners, co-teachers,
+                  co-actors and co-creators of knowledge and action. Through the
+                  creative capacities of its students, faculty and community
+                  partners, members explore, build and implement collaborative
+                  and strategic projects, programs and initiatives. Their work
+                  yields transformative learning, and positive sustainable
+                  change, through collective action. Check out its website{" "}
+                  <a
+                    href="https://swearer.brown.edu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    here
+                  </a>
+                  .
+                </p>
+              </div>
+            </div>
+
+            <div className="x-text">X</div>
+
+            {/* Met column */}
+            <div className="partner-block">
+              <Image
+                src="/metImage.png"
+                alt="The Met"
+                width={300}
+                height={300}
+                className="partner-logo"
+              />
+              <div className="partner-description">
+                <p>
+                  <strong>The Met</strong> is a network of six small, public
+                  high schools located in Providence and Newport, Rhode Island.
+                  With high standards and strong family engagement, the Met’s
+                  individualized learning approach has proven successful in
+                  unlocking students’ passion for learning. The Met empowers its
+                  students to take charge of their learning, to become
+                  responsible citizens and life-long learners. The hallmarks of
+                  a MET education include internships, individual learning
+                  plans, advisory, and a breakthrough college transition
+                  program.
+                </p>
+                <p>
+                  Every student has an individualized learning plan built around
+                  that child’s needs and interests, while incorporating the
+                  Met’s rigorous learning goals. Parents and mentors are active
+                  members of the student’s learning plan team, working with the
+                  advisor to develop the best curriculum for that child. Strong
+                  relationships with parents, family, the community, business,
+                  government, and other educational institutions are key factors
+                  that contribute to the success of Met students. For more
+                  information, check out its website{" "}
+                  <a
+                    href="https://www.themethighschool.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    here
+                  </a>
+                  .
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
           <p className="our-partnership-text">Our Partnership:</p>
           <div className={`partnership-image-container ${quicksand.className}`}>
-            <Image
-              src="/swearerImage.png"
-              alt="Swearer Center"
-              width={400}
-              height={400}
-              className="swearer-image"
-            />
-            <p className="x-text">X</p>
-            <Image
-              src="/metImage.png"
-              alt="The Met"
-              width={400}
-              height={400}
-              className="met-image"
-            />
+            <div className="partner-column">
+              <Image
+                src="/swearerImage.png"
+                alt="Swearer Center"
+                width={400}
+                height={400}
+                className="swearer-image"
+              />
+              <div className="partner-description">
+                <p>
+                  <strong>The Swearer Center</strong> is the public service
+                  center of Brown University. Aiming to combine community
+                  engagement, social innovation, and engaged scholarship through
+                  experiential learning, Swearer connects students, faculty, and
+                  community partners as part of the university’s educational
+                  mission. These valued relationships are based in values of
+                  ethical and engaged student leadership; reciprocity and
+                  respect; diversity, equity, and inclusion; social justice; and
+                  intellectual rigor. Today, the Center works with more than
+                  1,200 Brown students and 100+ community partners mostly
+                  located in the Greater Providence area.
+                </p>
+                <p>
+                  <strong>Mission</strong>
+                  <br />
+                  Swearer is a community of scholars, students, practitioners
+                  and community members that works together to build on
+                  community strengths and address community challenges. The
+                  Center’s work engages all as co-learners, co-teachers,
+                  co-actors and co-creators of knowledge and action. Through the
+                  creative capacities of its students, faculty and community
+                  partners, members explore, build and implement collaborative
+                  and strategic projects, programs and initiatives. Their work
+                  yields transformative learning, and positive sustainable
+                  change, through collective action. Check out its website{" "}
+                  <a
+                    href="https://swearer.brown.edu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    here
+                  </a>
+                  .
+                </p>
+              </div>
+            </div>
+
+            <div className="x-text">X</div>
+
+            <div className="partner-column">
+              <Image
+                src="/metImage.png"
+                alt="The Met"
+                width={200}
+                height={200}
+                className="met-image"
+              />
+              <div className="partner-description">
+                <p>
+                  <strong>The Met</strong> is a network of six small, public
+                  high schools located in Providence and Newport, Rhode Island.
+                  With high standards and strong family engagement, the Met’s
+                  individualized learning approach has proven successful in
+                  unlocking students’ passion for learning. The Met empowers its
+                  students to take charge of their learning, to become
+                  responsible citizens and life-long learners. The hallmarks of
+                  a MET education include internships, individual learning
+                  plans, advisory, and a breakthrough college transition
+                  program.
+                </p>
+                <p>
+                  Every student has an individualized learning plan built around
+                  that child’s needs and interests, while incorporating the
+                  Met’s rigorous learning goals. Parents and mentors are active
+                  members of the student’s learning plan team, working with the
+                  advisor to develop the best curriculum for that child. Strong
+                  relationships with parents, family, the community, business,
+                  government, and other educational institutions are key factors
+                  that contribute to the success of Met students. For more
+                  information, check out its website{" "}
+                  <a
+                    href="https://www.themethighschool.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    here
+                  </a>
+                  .
+                </p>
+              </div>
+            </div>
           </div>
         </div>
         <div className="bg-white-100 flex justify-center items-center min-h-100 p-6 pt-10">
@@ -330,28 +504,58 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
           z-index: 9999;
         }
 
-        .our-partnership-container {
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-        }
+        .partnership-section {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.partnership-columns {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+.partner-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+}
+
+.partner-logo {
+  margin-bottom: 16px;
+  object-fit: contain;
+}
+
+.partner-description {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: left;
+  width: 100%;
+  min-height: 260px; /* Set this to match tallest box or increase as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.x-text {
+  font-size: 48px;
+  align-self: center;
+  margin-top: 80px;
+}
         
         .our-partnership-text {
           margin: 100px;
           font-size: 36px;
           font-weight: bold;
           text-decoration: underline;
-        }
-
-        .partnership-image-container {
-          display: flex;
-          align-items: center;
-          flex-direction: row;
-        }
-        
-        .x-text {
-          font-size: 100px;
-          margin: 100px;
+          text-align: center;
         }
 
       `}</style>
