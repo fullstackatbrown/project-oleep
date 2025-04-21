@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { createBucketClient } from '@cosmicjs/sdk';
-import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
 interface CosmicImage {
   id: string;
@@ -19,6 +18,7 @@ interface CosmicImage {
 
 const Gallery = () => {
   const [photos, setPhotos] = useState<Array<{ src: string; alt: string }>>([]);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   useEffect(() => {
     async function fetchPhotos() {
@@ -35,7 +35,7 @@ const Gallery = () => {
         const photosData = objects
           .map((img: CosmicImage) => {
             const imageUrl = img.metadata.image?.imgix_url
-              ? `${img.metadata.image.imgix_url}?w=300&auto=format`
+              ? `${img.metadata.image.imgix_url}?w=300&h=300&fit=crop&auto=format`
               : img.metadata.image?.url || '';
             return {
               src: imageUrl,
@@ -44,28 +44,44 @@ const Gallery = () => {
           })
           .filter(photo => photo.src);
 
-        setPhotos(photosData);
+        const repeatedPhotos = Array(5)
+          .fill(photosData)
+          .flat();
+
+        setPhotos(repeatedPhotos);
       } catch (error) {
         console.error("Error fetching images:", error);
       }
     }
+
     fetchPhotos();
   }, []);
 
   return (
-    <div className="max-w-5xl mx-auto px-100">
-      <ResponsiveMasonry columnsCountBreakPoints={{ 0: 4 }}>
-        <Masonry gutter="10px">
-          {photos.map((photo, index) => (
-            <img
+    <div className="max-w-7xl mx-auto p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 transition-all duration-300">
+        {photos.map((photo, index) => {
+          const isHovered = hoveredIndex === index;
+          const isDimmed = hoveredIndex !== null && hoveredIndex !== index;
+
+          return (
+            <div
               key={index}
-              src={photo.src}
-              alt={photo.alt}
-              style={{ width: "100%", display: "block", borderRadius: "8px" }}
-            />
-          ))}
-        </Masonry>
-      </ResponsiveMasonry>
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className={`relative overflow-hidden rounded-xl border border-gray-300 transition-all duration-300 ${
+                isHovered ? "z-10 scale-[1.2]" : "scale-100"
+              } ${isDimmed ? "blur-sm brightness-75" : ""}`}
+            >
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                className="w-full h-[250px] object-cover"
+              />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
