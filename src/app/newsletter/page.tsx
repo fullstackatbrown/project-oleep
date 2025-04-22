@@ -1,5 +1,5 @@
 import NewsletterClient from "./NewsletterClient";
-import { RecentNewsletters } from "./NewsletterClient";
+// import { RecentNewsletters } from "./NewsletterClient";
 import { fetchNewsletters } from "@/lib/fetchNewsletters";
 
 
