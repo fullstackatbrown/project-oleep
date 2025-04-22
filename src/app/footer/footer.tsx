@@ -58,7 +58,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-col">
             <h4 className="text-lg font-semibold">Social Media</h4>
-            <div className="flex gap-3 mt-1 text-2xl">
+            <div className="flex gap-3 mt-1 text-2xl justify-end">
               <a
                 href="https://oleep.wordpress.com/contact-us-2/?share=facebook&nb=1"
                 target="_blank"
@@ -67,8 +67,8 @@ export default function Footer() {
                 <Image
                   src="/facebook.png"
                   alt="facebook logo"
-                  width={32}
-                  height={32}
+                  width={24}
+                  height={24}
                 />
               </a>
 
@@ -80,9 +80,9 @@ export default function Footer() {
                 <Image
                   src="/Instagram.png"
                   alt="instagram logo"
-                  width={35}
-                  height={35}
-                />
+                  width={24}
+                  height={24}
+                  />
               </a>
             </div>
           </div>
