@@ -116,6 +116,8 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
             </div>
           </div>
         </div>
+
+
         <div className="partnership-section">
           <p className="our-partnership-text">Our Partnership:</p>
 
@@ -215,102 +217,6 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
             </div>
           </div>
         </div>
-        <div>
-          <p className="our-partnership-text">Our Partnership:</p>
-          <div className={`partnership-image-container ${quicksand.className}`}>
-            <div className="partner-column">
-              <Image
-                src="/swearerImage.png"
-                alt="Swearer Center"
-                width={400}
-                height={400}
-                className="swearer-image"
-              />
-              <div className="partner-description">
-                <p>
-                  <strong>The Swearer Center</strong> is the public service
-                  center of Brown University. Aiming to combine community
-                  engagement, social innovation, and engaged scholarship through
-                  experiential learning, Swearer connects students, faculty, and
-                  community partners as part of the university’s educational
-                  mission. These valued relationships are based in values of
-                  ethical and engaged student leadership; reciprocity and
-                  respect; diversity, equity, and inclusion; social justice; and
-                  intellectual rigor. Today, the Center works with more than
-                  1,200 Brown students and 100+ community partners mostly
-                  located in the Greater Providence area.
-                </p>
-                <p>
-                  <strong>Mission</strong>
-                  <br />
-                  Swearer is a community of scholars, students, practitioners
-                  and community members that works together to build on
-                  community strengths and address community challenges. The
-                  Center’s work engages all as co-learners, co-teachers,
-                  co-actors and co-creators of knowledge and action. Through the
-                  creative capacities of its students, faculty and community
-                  partners, members explore, build and implement collaborative
-                  and strategic projects, programs and initiatives. Their work
-                  yields transformative learning, and positive sustainable
-                  change, through collective action. Check out its website{" "}
-                  <a
-                    href="https://swearer.brown.edu"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    here
-                  </a>
-                  .
-                </p>
-              </div>
-            </div>
-
-            <div className="x-text">X</div>
-
-            <div className="partner-column">
-              <Image
-                src="/metImage.png"
-                alt="The Met"
-                width={200}
-                height={200}
-                className="met-image"
-              />
-              <div className="partner-description">
-                <p>
-                  <strong>The Met</strong> is a network of six small, public
-                  high schools located in Providence and Newport, Rhode Island.
-                  With high standards and strong family engagement, the Met’s
-                  individualized learning approach has proven successful in
-                  unlocking students’ passion for learning. The Met empowers its
-                  students to take charge of their learning, to become
-                  responsible citizens and life-long learners. The hallmarks of
-                  a MET education include internships, individual learning
-                  plans, advisory, and a breakthrough college transition
-                  program.
-                </p>
-                <p>
-                  Every student has an individualized learning plan built around
-                  that child’s needs and interests, while incorporating the
-                  Met’s rigorous learning goals. Parents and mentors are active
-                  members of the student’s learning plan team, working with the
-                  advisor to develop the best curriculum for that child. Strong
-                  relationships with parents, family, the community, business,
-                  government, and other educational institutions are key factors
-                  that contribute to the success of Met students. For more
-                  information, check out its website{" "}
-                  <a
-                    href="https://www.themethighschool.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    here
-                  </a>
-                  .
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="bg-white-100 flex justify-center items-center min-h-100 p-6 pt-10">
           <div className="w-full max-w-5xl">
             <h2
@@ -327,11 +233,12 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
           display: flex;
           align-items: center;
           flex-direction: column;
-          width: 100vw;
+          width: 100%;
           max-width: 100%;
+          min-width: 100%;
           overflow-x: hidden;
-          margin: 0;
-          padding: 0;
+          margin: 0px;
+          padding: 0px;
         }
 
         .home-container {
@@ -396,7 +303,7 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
         }
 
         .who-we-are-text {
-          font-size: 24px;
+          font-size: 20px;
           padding: 50px 150px;
         }
 
@@ -514,14 +421,14 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 40px;
 }
 
 .partner-block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 350px;
+  width: 500px; /* increased from 350px */
 }
 
 .partner-logo {
@@ -538,11 +445,16 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
   line-height: 1.6;
   text-align: left;
   width: 100%;
-  min-height: 260px; /* Set this to match tallest box or increase as needed */
+  height: 600px; /* Set a fixed height instead of min-height */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  overflow-y: auto; /* Add scrolling if content overflows */
 }
+  .partner-description p {
+  margin-bottom: 1.5rem; /* Adds space between paragraphs */
+}
+
 
 .x-text {
   font-size: 48px;
@@ -551,7 +463,7 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
 }
         
         .our-partnership-text {
-          margin: 100px;
+          margin: 40px;
           font-size: 36px;
           font-weight: bold;
           text-decoration: underline;
