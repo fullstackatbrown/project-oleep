@@ -1,5 +1,5 @@
 import { createBucketClient } from "@cosmicjs/sdk";
-import { format, parseISO } from 'date-fns';
+import { format, formatDistanceToNow, parseISO } from 'date-fns';
 
 export default async function Curriculum() {
   const cosmic = createBucketClient({
@@ -48,7 +48,7 @@ export default async function Curriculum() {
                 <div className="event-right">
                   <div className="duration">
                     <img src="/duration.svg" className="icon"/>
-                    <p>2 hours</p>
+                    <p>{dateObj ? formatDistanceToNow(dateObj) : 'Unknown'}</p>
                   </div>
                   <a href={item.metadata?.document?.url} target="_blank" rel="noopener noreferrer">
                     <button className="download-button" aria-label="Download PDF">
