@@ -28,7 +28,7 @@ export default async function Curriculum() {
 
         <div className="workshop-program">
           <div className="workshop-header">
-            <img src="/curriculum-title.svg" alt="Curriculum Icon" className="workshop-icon" />
+            <img src="/nextjs-github-pages/curriculum-title.svg" alt="Curriculum Icon" className="workshop-icon" />
             <h1>Workshop Program</h1>
           </div>
           {curricula.map((item) => {
@@ -47,12 +47,12 @@ export default async function Curriculum() {
                 </div>
                 <div className="event-right">
                   <div className="duration">
-                    <img src="/duration.svg" className="icon"/>
+                    <img src="/nextjs-github-pages/duration.svg" className="icon"/>
                     <p>{dateObj ? formatDistanceToNow(dateObj) : 'Unknown'}</p>
                   </div>
                   <a href={item.metadata?.document?.url} target="_blank" rel="noopener noreferrer">
                     <button className="download-button" aria-label="Download PDF">
-                      <img src="/download.svg" className="download-icon" alt="Download" />
+                      <img src="/nextjs-github-pages/download.svg" className="download-icon" alt="Download" />
                     </button>
                   </a>
                   </div>

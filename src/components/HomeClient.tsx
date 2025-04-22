@@ -39,7 +39,7 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
       <div className={`main-container ${showPopup ? "blurred" : ""}`}>
         <div className="home-container">
           <Image
-            src="/homeImage.png"
+            src="/nextjs-github-pages/homeImage.png"
             alt="Environmental Illustration"
             width={490}
             height={433}
@@ -84,7 +84,7 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
         <div className={`mission-vision-container ${quicksand.className}`}>
           <div className="mission-vision-image-wrapper">
             <Image
-              src="/visionImage.jpg"
+              src="/nextjs-github-pages/visionImage.jpg"
               alt="Vision"
               width={300}
               height={300}
@@ -101,7 +101,7 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
           </div>
           <div className="mission-vision-image-wrapper">
             <Image
-              src="/missionImage.png"
+              src="/nextjs-github-pages/missionImage.png"
               alt="Mission"
               width={400}
               height={400}
@@ -125,7 +125,7 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
             {/* Swearer column */}
             <div className="partner-block">
               <Image
-                src="/swearerImage.png"
+                src="/nextjs-github-pages/swearerImage.png"
                 alt="Swearer Center"
                 width={300}
                 height={300}
@@ -175,7 +175,7 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
             {/* Met column */}
             <div className="partner-block">
               <Image
-                src="/metImage.png"
+                src="/nextjs-github-pages/metImage.png"
                 alt="The Met"
                 width={300}
                 height={300}

@@ -19,7 +19,7 @@ export default function Footer() {
     <h2 className="text-4xl font-bold text-black mb-2 ml-8 mb-4">Contact Us</h2>
 
     {/* Contact box */}
-    <div className="bg-white text-black rounded-lg p-6 h-[200px] shadow-[inset_4px_4px_8px_0_rgba(0,0,0,0.1)]">
+    <div className="bg-white text-black rounded-lg p-6 shadow-[inset_4px_4px_8px_0_rgba(0,0,0,0.1)]">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
           <h3 className="text-3xl font-semibold text-gray-900">
@@ -65,7 +65,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
               >
                 <Image
-                  src="/facebook.png"
+                  src="/nextjs-github-pages/facebook.png"
                   alt="facebook logo"
                   width={24}
                   height={24}
@@ -78,7 +78,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
               >
                 <Image
-                  src="/Instagram.png"
+                  src="/nextjs-github-pages/Instagram.png"
                   alt="instagram logo"
                   width={24}
                   height={24}

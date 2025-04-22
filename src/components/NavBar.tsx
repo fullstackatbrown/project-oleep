@@ -64,7 +64,7 @@ const NavBar = () => {
 
           <div className="logo">
             <Image
-              src="/oleepLogo.png"
+              src="/nextjs-github-pages/oleepLogo.png"
               alt="Logo"
               width={100}
               height={70}
