@@ -4,7 +4,7 @@ import React from "react";
 import "./globals.css";
 // import PopUp from "@/components/PopUp";
 // import Newsletter from "./newsletter/page";
-import { fetchNewsletters } from "./newsletter/page";
+import { fetchNewsletters } from "@/lib/fetchNewsletters";
 import HomeClient from "@/components/HomeClient";
 
 
