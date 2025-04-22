@@ -27,7 +27,10 @@ export default async function Curriculum() {
         </div>
 
         <div className="workshop-program">
-          <h1>Workshop Program</h1>
+          <div className="workshop-header">
+            <img src="/curriculum-title.svg" alt="Curriculum Icon" className="workshop-icon" />
+            <h1>Workshop Program</h1>
+          </div>
           {curricula.map((item) => {
             const dateObj = item.metadata?.date ? parseISO(item.metadata.date) : null;
             const day = dateObj ? format(dateObj, 'd') : '??';
@@ -97,7 +100,17 @@ export default async function Curriculum() {
         line-height: 1.5;
         font-size: 14px;
       }
-
+      .workshop-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .workshop-icon {
+        width: 32px; /* or however large you'd like it */
+        height: 32px;
+      }
       .workshop-program {
         width: 100%;
         max-width: 800px;
@@ -105,9 +118,10 @@ export default async function Curriculum() {
 
       .workshop-program h1 {
         text-align: center;
-        width: 100%;
-        margin-bottom: 20px;
+        // width: 100%;
+        // margin-bottom: 20px;
         font-family: Quicksand;
+        font-weight: bold;
       }
 
       .event {
