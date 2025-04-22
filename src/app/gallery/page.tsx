@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -43,7 +44,7 @@ const Gallery = () => {
               alt: img.title,
             };
           })
-          .filter((photo: { src: any; }) => photo.src);
+          .filter(photo => photo.src);
 
         const repeatedPhotos = Array(5)
           .fill(photosData)

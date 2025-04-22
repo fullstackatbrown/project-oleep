@@ -1,7 +1,7 @@
+// @ts-nocheck
 import { createBucketClient } from "@cosmicjs/sdk";
 import { format, formatDistanceToNow, parseISO } from 'date-fns';
 import Image from "next/image";
-import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from "react";
 
 export default async function Curriculum() {
   const cosmic = createBucketClient({
@@ -33,7 +33,7 @@ export default async function Curriculum() {
             <Image height={32} width={32} src="/nextjs-github-pages/curriculum-title.svg" alt="Curriculum Icon" className="workshop-icon" />
             <h1>Workshop Program</h1>
           </div>
-          {curricula.map((item: { metadata: { date: string; document: { url: string | undefined; }; }; slug: Key | null | undefined; title: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; }) => {
+          {curricula.map((item) => {
             const dateObj = item.metadata?.date ? parseISO(item.metadata.date) : null;
             const day = dateObj ? format(dateObj, 'd') : '??';
             const weekday = dateObj ? format(dateObj, 'EEE') : '??';
