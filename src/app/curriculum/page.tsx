@@ -43,9 +43,14 @@ export default async function Curriculum() {
                 <h3>{item.title}</h3>
                 </div>
                 <div className="event-right">
-                  <p>2 hours</p>
-                  <a href={item.metadata?.pdf?.url} target="_blank" rel="noopener noreferrer">
-                    <button className="download-button">Download</button>
+                  <div className="duration">
+                    <img src="/duration.svg" className="icon"/>
+                    <p>2 hours</p>
+                  </div>
+                  <a href={item.metadata?.document?.url} target="_blank" rel="noopener noreferrer">
+                    <button className="download-button" aria-label="Download PDF">
+                      <img src="/download.svg" className="download-icon" alt="Download" />
+                    </button>
                   </a>
                   </div>
               </div>
@@ -135,10 +140,15 @@ export default async function Curriculum() {
       .date {
         background-color: #4CAF50;
         color: white;
-        padding: 10px 15px;
+        padding: 10px;
         border-radius: 8px;
         text-align: center;
-        min-width: 25px;
+        width: 60px;         /* fixed width */
+        height: 48px;        /* fixed height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         flex-shrink: 0;
       }
 
@@ -155,6 +165,61 @@ export default async function Curriculum() {
       .event h3 {
         margin: 0;
         flex-grow: 1;
+      }
+      .icon {
+        width: 16px;
+        height: 16px;
+        filter: brightness(0) saturate(100%) invert(59%) sepia(17%) saturate(1210%) hue-rotate(77deg) brightness(97%) contrast(90%);
+        transition: transform 0.2s ease;
+      }
+
+      .download-icon {
+        width: 28px;
+        height: 28px;
+        transition: transform 0.2s ease;
+      }
+
+      .duration {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        font-size: 14px;
+        position: relative;
+        padding: 0 10px;
+      }
+
+      .duration::before,
+      .duration::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: #ccc; /* Light gray or change to match your theme */
+      }
+
+      .duration::before {
+        left: 0;
+      }
+
+      .duration::after {
+        right: 0;
+      }
+
+      .download-button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 12px;
+      }
+
+      .download-button:hover .icon {
+        transform: scale(1.1);
       }
     `}</style>
     </div>
