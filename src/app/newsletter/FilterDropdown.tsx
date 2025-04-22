@@ -3,10 +3,15 @@
 import { useState } from "react";
 import styles from "./FilterDropdown.module.css";
 
-const FilterDropdown = ({ selected, onChange }) => {
+interface FilterDropdownProps {
+  selected: string;
+  onChange: (option: string) => void;
+}
+
+const FilterDropdown = ({ selected, onChange }: FilterDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleSelect = (option) => {
+  const handleSelect = (option: string) => {
     onChange(option);
     setIsOpen(false);
   };

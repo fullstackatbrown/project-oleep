@@ -43,7 +43,7 @@ const Gallery = () => {
               alt: img.title,
             };
           })
-          .filter(photo => photo.src);
+          .filter((photo: { src: any; }) => photo.src);
 
         const repeatedPhotos = Array(5)
           .fill(photosData)

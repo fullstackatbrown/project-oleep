@@ -43,7 +43,7 @@ const cosmic = createBucketClient({
           obj.metadata.image?.url ||
           obj.metadata.image?.imgix_url ||
           "/nextjs-github-pages/noMentorImage.jpg",
-        contentURL: obj.metadata.content,
+        // contentURL: obj.metadata.content,
         contentURL:
           obj.metadata.content?.url ||
           obj.metadata.content?.imgix_url ||
