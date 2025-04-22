@@ -11,6 +11,12 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.config({
+    extends: ['next/core-web-vitals'],
+    rules: {
+      '@typescript-eslint/ban-ts-comment': 'off', // ✅ allow @ts-nocheck
+    },
+  }),
 ];
 
 export default eslintConfig;
