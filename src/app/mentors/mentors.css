@@ -100,14 +100,17 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
     display: flex;
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
 }
 
 .modal-content img {
-    flex: 0 0 50%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 0.5rem;
+    width: 300px;         /* Fixed width */
+    height: 300px;        /* Fixed height */
+    object-fit: cover;    /* Ensures the image fills the square */
+    border-radius: 0.75rem;
+    flex-shrink: 0;       /* Prevent it from shrinking on small screens */
 }
 
 .modal-content .flex-1 {

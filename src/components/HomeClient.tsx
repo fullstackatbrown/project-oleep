@@ -303,7 +303,7 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
         }
 
         .who-we-are-text {
-          font-size: 20px;
+          font-size: 24px;
           padding: 50px 150px;
         }
 
@@ -428,7 +428,7 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 500px; /* increased from 350px */
+  width: 33%; /* increased from 350px */
 }
 
 .partner-logo {
@@ -441,7 +441,7 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.6;
   text-align: left;
   width: 100%;
