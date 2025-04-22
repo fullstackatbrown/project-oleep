@@ -39,6 +39,8 @@ export default function MentorsClient({
                     >
                         <div className="mentor-card" title="Click to view bio">
                             <Image
+                                width={300}
+                                height={300}
                                 src={mentor.imageUrl}
                                 alt={mentor.name}
                                 className="mentor-image"
@@ -60,6 +62,8 @@ export default function MentorsClient({
                         onClick={(e) => e.stopPropagation()}
                     >
                         <Image
+                            width={300}
+                            height={300}
                             src={selectedMentor.imageUrl}
                             alt={selectedMentor.name}
                             className="w-1/2 h-auto object-cover rounded-lg"

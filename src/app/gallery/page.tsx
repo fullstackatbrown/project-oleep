@@ -75,6 +75,8 @@ const Gallery = () => {
               } ${isDimmed ? "blur-sm brightness-75" : ""}`}
             >
               <Image
+                width={250}
+                height={250}
                 src={photo.src}
                 alt={photo.alt}
                 className="w-full h-[250px] object-cover"

@@ -14,7 +14,7 @@ const RecentNewsletterCard: React.FC<RecentNewsletterCardProps> = ({ date, title
         <div className={styles.card}>
                 <div className={styles.dateTag}>{date}</div>
                 <div className={styles.imagePlaceholder}>
-                    <Image src={imageUrl} alt={title} className={styles.image} />
+                    <Image  height={400} width={400} src={imageUrl} alt={title} className={styles.image} />
                 </div>
                 {/* <h3 className={styles.title}>{title}</h3> */}
                 <p className={styles.description}>

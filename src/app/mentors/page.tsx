@@ -45,7 +45,7 @@ async function fetchMentors() {
             imageUrl:
                 obj.metadata.image?.url ||
                 obj.metadata.image?.imgix_url ||
-                "/noMentorImage.jpg",
+                "/nextjs-github-pages/noMentorImage.jpg",
         }));
     } catch (error) {
         console.error("Error fetching mentors:", error);

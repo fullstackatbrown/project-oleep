@@ -48,7 +48,7 @@ export default function TestImage() {
       {imageUrl ? (
         <div>
           <h3>Image from CosmicJS:</h3>
-          <Image src={imageUrl} alt="Fetched from CosmicJS" style={{ maxWidth: '100%', height: 'auto' }} />
+          <Image height={400} width={400} src={imageUrl} alt="Fetched from CosmicJS" style={{ maxWidth: '100%', height: 'auto' }} />
         </div>
       ) : (
         <p>No image found</p>

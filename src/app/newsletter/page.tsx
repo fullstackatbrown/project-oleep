@@ -42,12 +42,12 @@ export async function fetchNewsletters() {
       imageUrl:
         obj.metadata.image?.url ||
         obj.metadata.image?.imgix_url ||
-        "/noMentorImage.jpg",
+        "/nextjs-github-pages/noMentorImage.jpg",
       contentURL: obj.metadata.content,
       contentURL:
         obj.metadata.content?.url ||
         obj.metadata.content?.imgix_url ||
-        "/noMentorImage.jpg",
+        "/nextjs-github-pages/noMentorImage.jpg",
       description: obj.metadata.description,
     }));
   } catch (error) {
