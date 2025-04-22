@@ -1,50 +1,61 @@
-export default function Curriculum() {
+import { createBucketClient } from "@cosmicjs/sdk";
+import { format, parseISO } from 'date-fns';
+
+export default async function Curriculum() {
+  const cosmic = createBucketClient({
+    bucketSlug: 'fullstack-oleep-production',
+    readKey: 'OgbgGgGqXoTSTvpdJ3NtQuU0I5sCWRfj60IBS0SFGy9Y7n0unh'
+  });
+
+  const { objects: curricula } = await cosmic.objects
+    .find({ type: 'curricula' })
+    .limit(10)
+    .props('slug,title,metadata,type')
+    .depth(1);
+  
+    console.log('Curricula objects:', JSON.stringify(curricula, null, 2));
+
+
   return (
     <div className="parent">
       <div className="content-wrapper">
         <div className="header">
-            <div className="info-box">
-              <p>This page serves as a comprehensive resource for all our weekly environmental workshops. Here, you will find PDF files containing valuable materials, presentations, and guides from each session.</p>
-              <p>We update this page regularly to ensure you have access to the latest information, insights, and discussions from our workshops.</p>
-            </div>
+          <div className="info-box">
+            <p>This page serves as a comprehensive resource for all our weekly environmental workshops. Here, you will find PDF files containing valuable materials, presentations, and guides from each session.</p>
+            <p>We update this page regularly to ensure you have access to the latest information, insights, and discussions from our workshops.</p>
+          </div>
         </div>
+
         <div className="workshop-program">
           <h1>Workshop Program</h1>
-            <div className="event">
-              <div className="date">
-                <p>23</p>
-                <p>Fri</p>
+          {curricula.map((item) => {
+            const dateObj = item.metadata?.date ? parseISO(item.metadata.date) : null;
+            const day = dateObj ? format(dateObj, 'd') : '??';
+            const weekday = dateObj ? format(dateObj, 'EEE') : '??';
+
+            return (
+              <div className="event" key={item.slug}>
+                <div className="event-left">
+                <div className="date">
+                  <p>{day}</p>
+                  <p>{weekday}</p>
+                </div>
+                <h3>{item.title}</h3>
+                </div>
+                <div className="event-right">
+                  <div className="duration">
+                    <img src="/duration.svg" className="icon"/>
+                    <p>2 hours</p>
+                  </div>
+                  <a href={item.metadata?.document?.url} target="_blank" rel="noopener noreferrer">
+                    <button className="download-button" aria-label="Download PDF">
+                      <img src="/download.svg" className="download-icon" alt="Download" />
+                    </button>
+                  </a>
+                  </div>
               </div>
-              <h3>Sustainable Living & Zero-Waste Practices</h3>
-            </div>
-            <div className="event">
-              <div className="date">
-                <p>23</p>
-                <p>Fri</p>
-              </div>
-              <h3>Sustainable Living & Zero-Waste Practices</h3>
-            </div>
-            <div className="event">
-              <div className="date">
-                <p>23</p>
-                <p>Fri</p>
-              </div>
-              <h3>Sustainable Living & Zero-Waste Practices</h3>
-            </div>
-            <div className="event">
-              <div className="date">
-                <p>23</p>
-                <p>Fri</p>
-              </div>
-              <h3>Sustainable Living & Zero-Waste Practices</h3>
-            </div>
-            <div className="event">
-              <div className="date">
-                <p>23</p>
-                <p>Fri</p>
-              </div>
-              <h3>Sustainable Living & Zero-Waste Practices</h3>
-            </div>
+            );
+          })}
         </div>
       </div>
 
@@ -102,6 +113,7 @@ export default function Curriculum() {
       .event {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         border: 1px solid black;
         padding: 8px;
         width: 100%;
@@ -112,13 +124,31 @@ export default function Curriculum() {
         font-family: Quicksand;
       }
 
+      .event-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-grow: 1;
+      }
+
+      .event-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      }
+
       .date {
         background-color: #4CAF50;
         color: white;
-        padding: 10px 15px;
+        padding: 10px;
         border-radius: 8px;
         text-align: center;
-        min-width: 25px;
+        width: 60px;         /* fixed width */
+        height: 48px;        /* fixed height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         flex-shrink: 0;
       }
 
@@ -135,6 +165,61 @@ export default function Curriculum() {
       .event h3 {
         margin: 0;
         flex-grow: 1;
+      }
+      .icon {
+        width: 16px;
+        height: 16px;
+        filter: brightness(0) saturate(100%) invert(59%) sepia(17%) saturate(1210%) hue-rotate(77deg) brightness(97%) contrast(90%);
+        transition: transform 0.2s ease;
+      }
+
+      .download-icon {
+        width: 28px;
+        height: 28px;
+        transition: transform 0.2s ease;
+      }
+
+      .duration {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        font-size: 14px;
+        position: relative;
+        padding: 0 10px;
+      }
+
+      .duration::before,
+      .duration::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: #ccc; /* Light gray or change to match your theme */
+      }
+
+      .duration::before {
+        left: 0;
+      }
+
+      .duration::after {
+        right: 0;
+      }
+
+      .download-button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 12px;
+      }
+
+      .download-button:hover .icon {
+        transform: scale(1.1);
       }
     `}</style>
     </div>
