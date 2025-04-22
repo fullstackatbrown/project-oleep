@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { createBucketClient } from '@cosmicjs/sdk';
+import Image from 'next/image';
 
 interface CosmicImage {
   id: string;
@@ -73,7 +74,7 @@ const Gallery = () => {
                 isHovered ? "z-10 scale-[1.2]" : "scale-100"
               } ${isDimmed ? "blur-sm brightness-75" : ""}`}
             >
-              <img
+              <Image
                 src={photo.src}
                 alt={photo.alt}
                 className="w-full h-[250px] object-cover"

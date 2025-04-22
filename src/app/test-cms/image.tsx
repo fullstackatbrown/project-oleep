@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { createBucketClient } from '@cosmicjs/sdk';
+import Image from "next/image";
 
 const cosmic = createBucketClient({
   bucketSlug: process.env.NEXT_PUBLIC_COSMIC_BUCKET_SLUG || '',
@@ -47,7 +48,7 @@ export default function TestImage() {
       {imageUrl ? (
         <div>
           <h3>Image from CosmicJS:</h3>
-          <img src={imageUrl} alt="Fetched from CosmicJS" style={{ maxWidth: '100%', height: 'auto' }} />
+          <Image src={imageUrl} alt="Fetched from CosmicJS" style={{ maxWidth: '100%', height: 'auto' }} />
         </div>
       ) : (
         <p>No image found</p>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./NewsletterCard.module.css";
 
 interface NewsletterCardProps {
@@ -14,7 +15,7 @@ const NewsletterCard: React.FC<NewsletterCardProps> = ({ date, title, url, image
       <a href={url} target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
         <div className={styles.dateTag}>{date}</div>
         <div className={styles.imagePlaceholder}>
-          <img src={imageUrl} alt={title} className={styles.image} />
+          <Image src={imageUrl} alt={title} className={styles.image} />
         </div>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.description}>{description}</p>

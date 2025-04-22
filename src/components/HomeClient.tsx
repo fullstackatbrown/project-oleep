@@ -5,7 +5,6 @@ import Image from "next/image";
 import "../app/globals.css";
 import { Quicksand } from "next/font/google";
 import PopUp from "@/components/PopUp";
-import { RecentNewsletter } from "@/app/newsletter/page";
 import { RecentNewsletters } from "@/app/newsletter/NewsletterClient";
 // import Newsletter from "./newsletter/page";
 

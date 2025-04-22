@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 type MentorObject = {
@@ -37,7 +38,7 @@ export default function MentorsClient({
                         onClick={() => openModal(mentor)}
                     >
                         <div className="mentor-card" title="Click to view bio">
-                            <img
+                            <Image
                                 src={mentor.imageUrl}
                                 alt={mentor.name}
                                 className="mentor-image"
@@ -58,7 +59,7 @@ export default function MentorsClient({
                         className="modal-content rounded-lg flex w-3/4"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <img
+                        <Image
                             src={selectedMentor.imageUrl}
                             alt={selectedMentor.name}
                             className="w-1/2 h-auto object-cover rounded-lg"

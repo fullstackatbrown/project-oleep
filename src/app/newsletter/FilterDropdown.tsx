@@ -5,7 +5,6 @@ import styles from "./FilterDropdown.module.css";
 
 const FilterDropdown = ({ selected, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("Newest");
 
   const handleSelect = (option) => {
     onChange(option);

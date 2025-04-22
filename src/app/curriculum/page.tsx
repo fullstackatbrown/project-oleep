@@ -1,5 +1,6 @@
 import { createBucketClient } from "@cosmicjs/sdk";
 import { format, formatDistanceToNow, parseISO } from 'date-fns';
+import Image from "next/image";
 
 export default async function Curriculum() {
   const cosmic = createBucketClient({
@@ -28,7 +29,7 @@ export default async function Curriculum() {
 
         <div className="workshop-program">
           <div className="workshop-header">
-            <img src="/nextjs-github-pages/curriculum-title.svg" alt="Curriculum Icon" className="workshop-icon" />
+            <Image src="/nextjs-github-pages/curriculum-title.svg" alt="Curriculum Icon" className="workshop-icon" />
             <h1>Workshop Program</h1>
           </div>
           {curricula.map((item) => {
@@ -47,12 +48,12 @@ export default async function Curriculum() {
                 </div>
                 <div className="event-right">
                   <div className="duration">
-                    <img src="/nextjs-github-pages/duration.svg" className="icon"/>
+                    <Image src="/nextjs-github-pages/duration.svg" alt="duration logo" className="icon"/>
                     <p>{dateObj ? formatDistanceToNow(dateObj) : 'Unknown'}</p>
                   </div>
                   <a href={item.metadata?.document?.url} target="_blank" rel="noopener noreferrer">
                     <button className="download-button" aria-label="Download PDF">
-                      <img src="/nextjs-github-pages/download.svg" className="download-icon" alt="Download" />
+                      <Image src="/nextjs-github-pages/download.svg" className="download-icon" alt="Download" />
                     </button>
                   </a>
                   </div>

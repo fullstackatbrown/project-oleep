@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./RecentNewsletterCard.module.css";
 
 interface RecentNewsletterCardProps {
@@ -13,7 +14,7 @@ const RecentNewsletterCard: React.FC<RecentNewsletterCardProps> = ({ date, title
         <div className={styles.card}>
                 <div className={styles.dateTag}>{date}</div>
                 <div className={styles.imagePlaceholder}>
-                    <img src={imageUrl} alt={title} className={styles.image} />
+                    <Image src={imageUrl} alt={title} className={styles.image} />
                 </div>
                 {/* <h3 className={styles.title}>{title}</h3> */}
                 <p className={styles.description}>
