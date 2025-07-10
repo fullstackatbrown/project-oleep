@@ -13,6 +13,7 @@ const cosmic = createBucketClient({
     readKey: process.env.NEXT_PUBLIC_COSMIC_READ_KEY || "",
 });
 
+
 type CosmicMentor = {
     slug: string;
     title: string;
@@ -54,6 +55,12 @@ async function fetchMentors() {
 }
 
 export default async function Mentors() {
+    // console.log if cosmic.bucketslug is set or not
+    if (!process.env.NEXT_PUBLIC_COSMIC_BUCKET_SLUG || process.env.NEXT_PUBLIC_COSMIC_BUCKET_SLUG === "") {
+        console.error("Cosmic bucket slug is not set.");
+    } else {
+        console.log("Cosmic bucket slug is set:");
+    }
     const mentors = await fetchMentors();
     return (
         <div className={`p-8 ${quicksand.className}`} id="page-container">
