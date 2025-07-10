@@ -32,9 +32,8 @@ const NavBar = () => {
           <ul className="nav-left">
             <li>
               <Link
-                className={`navbar-link ${
-                  pathname === "/" ? "active-link" : ""
-                }`}
+                className={`navbar-link ${pathname === "/" ? "active-link" : ""
+                  }`}
                 href="/"
               >
                 Home
@@ -42,9 +41,8 @@ const NavBar = () => {
             </li>
             <li>
               <Link
-                className={`navbar-link ${
-                  pathname === "/mentors" ? "active-link" : ""
-                }`}
+                className={`navbar-link ${pathname === "/mentors" ? "active-link" : ""
+                  }`}
                 href="/mentors"
               >
                 Mentors
@@ -52,9 +50,8 @@ const NavBar = () => {
             </li>
             <li>
               <Link
-                className={`navbar-link ${
-                  pathname === "/newsletter" ? "active-link" : ""
-                }`}
+                className={`navbar-link ${pathname === "/newsletter" ? "active-link" : ""
+                  }`}
                 href="/newsletter"
               >
                 News
@@ -64,7 +61,7 @@ const NavBar = () => {
 
           <div className="logo">
             <Image
-              src="/nextjs-github-pages/oleepLogo.png"
+              src="/oleepLogo.png"
               alt="Logo"
               width={100}
               height={70}
@@ -75,9 +72,8 @@ const NavBar = () => {
           <ul className="nav-right">
             <li>
               <Link
-                className={`navbar-link ${
-                  pathname === "/curriculum" ? "active-link" : ""
-                }`}
+                className={`navbar-link ${pathname === "/curriculum" ? "active-link" : ""
+                  }`}
                 href="/curriculum"
               >
                 Curriculum
@@ -85,9 +81,8 @@ const NavBar = () => {
             </li>
             <li>
               <Link
-                className={`navbar-link ${
-                  pathname === "/gallery" ? "active-link" : ""
-                }`}
+                className={`navbar-link ${pathname === "/gallery" ? "active-link" : ""
+                  }`}
                 href="/gallery"
               >
                 Gallery
@@ -95,9 +90,8 @@ const NavBar = () => {
             </li>
             <li>
               <Link
-                className={`navbar-link ${
-                  pathname === "/about" ? "active-link" : ""
-                }`}
+                className={`navbar-link ${pathname === "/about" ? "active-link" : ""
+                  }`}
                 href="/about"
               >
                 About
