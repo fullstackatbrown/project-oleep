@@ -5,8 +5,8 @@ import Image from "next/image";
 
 export default async function Curriculum() {
   const cosmic = createBucketClient({
-    bucketSlug: 'fullstack-oleep-production',
-    readKey: 'OgbgGgGqXoTSTvpdJ3NtQuU0I5sCWRfj60IBS0SFGy9Y7n0unh'
+    bucketSlug: process.env.NEXT_PUBLIC_COSMIC_BUCKET_SLUG || "",
+    readKey: process.env.NEXT_PUBLIC_COSMIC_READ_KEY || "",
   });
 
   const { objects: curricula } = await cosmic.objects

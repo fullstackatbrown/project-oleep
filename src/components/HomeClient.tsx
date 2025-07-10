@@ -58,7 +58,7 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
               className="donate-button"
               onClick={() => setShowPopup(true)}
             >
-              Donate DEPLOYMENT TEST
+              Donate
             </button>
           </div>
         </div>
