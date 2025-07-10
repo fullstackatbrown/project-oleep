@@ -8,6 +8,8 @@ const quicksand = Quicksand({
   weight: ["400", "500", "600", "700"],
 });
 
+export const dynamic = "force-dynamic";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
