@@ -55,11 +55,25 @@ async function fetchMentors() {
 }
 
 export default async function Mentors() {
-    // console.log if cosmic.bucketslug is set or not
-    if (!process.env.NEXT_PUBLIC_COSMIC_BUCKET_SLUG || process.env.NEXT_PUBLIC_COSMIC_BUCKET_SLUG === "") {
-        console.error("Cosmic bucket slug is not set.");
-    } else {
-        console.log("Cosmic bucket slug is set:");
+    const bucketSlug = process.env.NEXT_PUBLIC_COSMIC_BUCKET_SLUG;
+    if (!bucketSlug || bucketSlug === "") {
+        return (
+            <div className={`p-8 ${quicksand.className}`} id="page-container">
+                <h1
+                    style={{
+                        marginTop: 0,
+                        marginBottom: "2rem",
+                        fontSize: "2.5rem",
+                        fontWeight: "bold",
+                    }}
+                >
+                    Mentors
+                </h1>
+                <div style={{ color: "red", fontWeight: "bold" }}>
+                    Error: Cosmic bucket slug is not set. Please check your environment variables.
+                </div>
+            </div>
+        );
     }
     const mentors = await fetchMentors();
     return (
