@@ -1,11 +1,6 @@
 // src/lib/fetchNewsletters.ts
 import { createBucketClient } from "@cosmicjs/sdk";
 
-const cosmic = createBucketClient({
-  bucketSlug: process.env.NEXT_PUBLIC_COSMIC_BUCKET_SLUG || "",
-  readKey: process.env.NEXT_PUBLIC_COSMIC_READ_KEY || "",
-});
-
 type CosmicNewsletterResponse = {
   objects: Array<{
     slug: string;
@@ -29,6 +24,22 @@ type CosmicNewsletterResponse = {
 };
 
 export async function fetchNewsletters() {
+  // Initialize the Cosmic client using env vars at call time so CI/runtime-injected
+  // values from GitHub/Vercel are correctly picked up.
+  const bucketSlug = process.env.NEXT_PUBLIC_COSMIC_BUCKET_SLUG;
+  const readKey = process.env.NEXT_PUBLIC_COSMIC_READ_KEY;
+
+  if (!bucketSlug || !readKey) {
+    // Surface a clear error on the server (and return empty list in prod usage)
+    console.error(
+      "Missing Cosmic env vars: NEXT_PUBLIC_COSMIC_BUCKET_SLUG and/or NEXT_PUBLIC_COSMIC_READ_KEY"
+    );
+  }
+
+  const cosmic = createBucketClient({
+    bucketSlug: bucketSlug || "",
+    readKey: readKey || "",
+  });
   try {
     const { objects } = await cosmic.objects
       .find({ type: "newsletters" })
