@@ -46,11 +46,8 @@ const Gallery = () => {
           })
           .filter(photo => photo.src);
 
-        const repeatedPhotos = Array(5)
-          .fill(photosData)
-          .flat();
-
-        setPhotos(repeatedPhotos);
+  // Render only the fetched photos once
+  setPhotos(photosData);
       } catch (error) {
         console.error("Error fetching images:", error);
       }
