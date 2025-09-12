@@ -38,7 +38,7 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
       <div className={`main-container ${showPopup ? "blurred" : ""}`}>
         <div className="home-container">
           <Image
-            src="/homeImage.png"
+            src="/home-logo-up.png"
             alt="Environmental Illustration"
             width={490}
             height={433}
@@ -254,6 +254,7 @@ export default function HomeClient({ newsletters }: NewsletterClientProps) {
           position: relative;
           width: 100%;
           height: auto;
+          background: none;
         }
 
         .text-content {
