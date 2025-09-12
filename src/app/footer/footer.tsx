@@ -7,7 +7,12 @@ const quicksand = Quicksand({
   weight: ["400", "600", "700"],
 });
 
-export default function Footer() {
+export default function Footer({ siteLeaders = [] }) {
+  // Format leaders for display
+  const leaderNames = siteLeaders.length > 0
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ? siteLeaders.map((leader: any) => leader.title).join(' and ')
+    : 'Amanda and Tamara';
   return (
     <div className={quicksand.className}>
       {/* Contact Section */}
@@ -26,7 +31,7 @@ export default function Footer() {
                     We always welcome questions and comments!
                   </h3>
                   <p className="text-gray-600 mt-2">
-                    If you want to learn how to support OLEEP or are interested in becoming a mentor or mentee, get in touch with site leaders Amanda and Tamara!
+                    If you want to learn how to support OLEEP or are interested in becoming a mentor or mentee, get in touch with site leaders {leaderNames}!
                   </p>
                 </div>
                 <a href="mailto:brownoleep@gmail.com">
