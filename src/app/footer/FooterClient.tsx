@@ -18,6 +18,7 @@ export default function FooterClient() {
           .props("slug,title,metadata,type")
           .depth(1);
         setSiteLeaders(response.objects || []);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {
         setSiteLeaders([]);
       }
